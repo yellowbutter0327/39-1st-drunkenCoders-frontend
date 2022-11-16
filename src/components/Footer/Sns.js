@@ -42,7 +42,7 @@ const Sns = () => {
     <div className="sns-box">
       {snsLink.map(ele => {
         return (
-          <a href={ele.url} target="_blank" rel="noreferrer">
+          <a href={ele.url} target="_blank" rel="noreferrer" key={ele.id}>
             <img src={ele.icon} alt={ele.name} />
           </a>
         );

@@ -49,7 +49,7 @@ const Footer = () => {
             <li>이메일 : info@sooldamhwa.com</li>
           </ul>
         </div>
-        <p class="sub-txt">
+        <p className="sub-txt">
           술담화는 통신판매중개자로서 통신판매 당사자가 아니며, 판매자가 등록한
           상품정보 및 거래에 대해 술담화는 책임을 지지 않습니다.
           <br />

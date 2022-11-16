@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Main.scss';
 import iconPick from './../../assets/main/icon_pick.png';
@@ -15,24 +15,57 @@ const Main = () => {
     { id: 3, src: '/images/visual_3.jpg' },
   ];
 
+  const [current, setCurrent] = useState(0);
+  const [location, setLocation] = useState({
+    transform: `translateX(-${current}00%)`,
+  });
+
+  const moveSlide = i => {
+    let nextIndex = current + i;
+
+    if (nextIndex >= carouselSlider.length) {
+      nextIndex = 0;
+    } else if (nextIndex < 0) {
+      nextIndex = carouselSlider.length - 1;
+    }
+
+    setCurrent(nextIndex);
+  };
+
+  useEffect(() => {
+    setLocation({ transform: `translateX(-${current}00%)` });
+  }, [current]);
+
   return (
     <div className="container">
       <div className="main-wrap">
         <div className="main-slider">
-          <div className="slider-box">
+          <div className="slider-box" style={location}>
             {carouselSlider.map(ele => {
               return (
-                <div className="slide">
+                <div className="slide" key={ele.id}>
                   <img src={ele.src} alt="샘플 배너" />
                 </div>
               );
             })}
           </div>
           <div className="slide-btn">
-            <button type="button" className="btn-prev">
+            <button
+              type="button"
+              className="btn-prev"
+              onClick={() => {
+                moveSlide(-1);
+              }}
+            >
               prev
             </button>
-            <button type="button" className="btn-next">
+            <button
+              type="button"
+              className="btn-next"
+              onClick={() => {
+                moveSlide(1);
+              }}
+            >
               next
             </button>
           </div>

@@ -4,6 +4,7 @@ import FilterSelector from './FilterSelector';
 
 const ProductFilter = roops => {
   return (
+    // 필터 박스
     <div className="filter-box">
       <FilterSelector />
     </div>

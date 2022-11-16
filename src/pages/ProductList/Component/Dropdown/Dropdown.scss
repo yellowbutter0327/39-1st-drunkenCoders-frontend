@@ -1,46 +1,62 @@
-// fade in
-@keyframes slde-fade-in-dropdown-animation {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-.slide-fade-in-dropdown {
-  overflow: hidden;
-}
-
-.slide-fade-in-dropdown > ul {
-  animation: slide-fade-in-dropdown-animation 0.4s ease;
-}
-
-// fade out
-
-@keyframes .slide-fade-in-dropdown-animation {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
-.slide-fade-out-dropdown {
-  overflow: hidden;
-}
-
-.slide-fade-out-dropdown > ul {
-  animation: slide-fade-out-dropdown-animation 0.4s ease;
-  animation-fill-mode: forwards;
-}
-
-.components-dropdown > ul {
+.filter-box-wrapper {
   position: relative;
-  top: 5px;
-  margin-top: 0;
-  margin-bottom: 5px;
-  padding-left: 0;
-  list-style: none;
+
+  // fade in
+  @keyframes slide-fade-in-dropdown-animation {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .slide-fade-in-dropdown {
+    // overflow: hidden;
+  }
+
+  .slide-fade-in-dropdown > ul {
+    animation: slide-fade-in-dropdown-animation 0.4s ease;
+  }
+
+  // fade out
+
+  @keyframes .slide-fade-in-dropdown-animation {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+  .slide-fade-out-dropdown {
+    overflow: hidden;
+  }
+
+  .slide-fade-out-dropdown > ul {
+    animation: slide-fade-out-dropdown-animation 0.4s ease;
+    animation-fill-mode: forwards;
+  }
+
+  .components-dropdown > ul {
+    position: relative;
+    top: 5px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .option-box-wrapper {
+    display: block;
+    width: 350px;
+    padding: 15px 0px 0px 0px;
+    top: 50px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px 0px;
+    z-index: 200;
+  }
 }

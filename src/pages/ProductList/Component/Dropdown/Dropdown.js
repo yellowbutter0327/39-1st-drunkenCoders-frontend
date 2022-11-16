@@ -1,12 +1,13 @@
 import React from 'react';
 import './Dropdown.scss';
 import DropdownList from './DropdownList';
+import DropdonwItem from './DropdownItem';
 
 const Dropdown = props => {
   const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
 
   return (
-    <div>
+    <div className="filter-box-wrapper">
       <button
         className="filter-button"
         onClick={e => setDropdownVisibility(!dropdownVisibility)}
@@ -20,12 +21,12 @@ const Dropdown = props => {
         />
       </button>
       <DropdownList visibility={dropdownVisibility}>
-        <ul>
-          <li>item 1</li>
-          <li>item 2</li>
-          <li>item 3</li>
-          <li>item 4</li>
-        </ul>
+        <div className="option-box-wrapper">
+          <DropdonwItem />
+          <DropdonwItem />
+          <DropdonwItem />
+          <DropdonwItem />
+        </div>
       </DropdownList>
     </div>
   );

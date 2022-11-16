@@ -1,11 +1,11 @@
 .filter {
-  display: flex;
-  width: 15%;
+  display: inline-block;
   .filter-wrapper {
     display: flex;
     align-content: center;
     border: solid 1px rgb(244, 244, 244);
     border-radius: 5px;
+    margin: 10px 0px 10px 0px;
 
     .filter-item {
       display: inline-block;

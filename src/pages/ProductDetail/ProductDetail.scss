@@ -1,16 +1,19 @@
 * {
   font-family: Spoqa Han Sans Neo, 'sans-serif';
 }
+
 .detail-main {
   width: 100%;
   max-width: 1184px;
   min-height: 1000px;
   padding: 20px 0px 250px;
+
   .left-side {
     margin-left: 50px;
     width: 700px;
     max-width: 800px;
     display: inline-block;
+
     .detail-box {
       font-size: 0px;
       display: flex;
@@ -82,6 +85,7 @@
               pointer-events: none;
               font-weight: bold;
             }
+
             .review {
               margin-left: 10px;
               margin-bottom: -8px;
@@ -92,6 +96,7 @@
             }
           }
         }
+
         .sector-third {
           line-height: 1.14;
           margin-bottom: 50px;
@@ -151,22 +156,25 @@
       height: 600px;
       overflow: hidden;
       position: relative;
+
       &.active {
         height: auto;
       }
+
       .foled-button-down {
         position: absolute;
         bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
+
         .fold-btn {
           width: 600px;
           height: 44px;
           border-radius: 5px;
           display: flex;
-          -webkit-box-pack: center;
+
           justify-content: center;
-          -webkit-box-align: center;
+
           align-items: center;
           gap: 4.42px;
           background-color: rgb(255, 186, 0);
@@ -177,6 +185,10 @@
           color: rgb(255, 255, 255);
         }
       }
+    }
+
+    .recommend {
+      margin-top: 40px;
     }
   }
   .right-side {
@@ -217,15 +229,18 @@
         .countDiv {
           border: 1px solid #fbfbfb;
         }
+
         .img-minus {
           width: 24px;
           height: 24px;
         }
+
         .img-plus {
           width: 24px;
           height: 24px;
         }
       }
+
       .select-wrapper .select-wrapper-count {
         -webkit-box-pack: justify;
         justify-content: space-between;
@@ -256,6 +271,7 @@
         border: 1px solid rgb(224, 224, 224);
         margin-bottom: 20px;
       }
+
       .delivery {
         background: #f7f7f7;
         margin: 0px 0px 60px;
@@ -271,10 +287,12 @@
             color: #0097f3;
             margin-left: 5px;
           }
+
           .price {
             margin-left: 5px;
           }
         }
+
         .iconTruck {
           width: 20px;
         }
@@ -332,6 +350,7 @@
           transition: all 0.3s ease 0s;
           border: 1px solid #b2b2b2;
         }
+
         .purchase-btn {
           background-color: #0097f3;
           color: white;

@@ -104,7 +104,6 @@ const ProductDetail = () => {
                   {isActive ? '상품설명 펼치기' : '상품설명 접기'}
                 </button>
               </div>
-              <div className="foled-button-up"></div>
             </div>
             {/* <div className="image-detail">
               <img src="./" />

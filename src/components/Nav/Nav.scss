@@ -7,6 +7,7 @@
   border-bottom: 1px solid #ddd;
   background: #fff;
   z-index: 100;
+
   .inner {
     position: relative;
     display: flex;
@@ -14,26 +15,34 @@
     margin: 0 auto;
     max-width: 1200px;
     height: 100%;
+
     h1 {
       width: 85px;
+
       a {
         display: inline-flex;
       }
     }
+
     .link-area {
       margin-left: 30px;
+
       a {
+        margin-left: 20px;
         color: #666;
         font-size: 16px;
         font-weight: bold;
+
         &.active {
           color: #ffba00;
         }
-        & + a {
-          margin-left: 20px;
+
+        &:first-child {
+          margin-left: 0;
         }
       }
     }
+
     .search-area {
       display: flex;
       align-items: center;
@@ -43,26 +52,31 @@
       padding: 0 10px;
       border-radius: 4px;
       background: #f2f2f2;
+
       img {
         width: 16px;
       }
+
       .txt {
         margin-left: 10px;
         color: #aaa;
       }
     }
+
     .info-area {
       position: absolute;
       top: 50%;
       right: 0;
-
       transform: translateY(-50%);
+
       a {
         color: #444;
         vertical-align: middle;
+
         & + * {
           margin-left: 20px;
         }
+
         &.cart {
           position: relative;
           display: inline-block;

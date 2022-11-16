@@ -106,7 +106,7 @@ const ProductDetail = () => {
               </div>
               <div className="foled-button-up"></div>
             </div>
-            <div className="image-detail">
+            {/* <div className="image-detail">
               <img src="./" />
               <div className="image-detail-string">
                 양조장 이야기가 궁금하다면?
@@ -116,7 +116,7 @@ const ProductDetail = () => {
               <img src="./" />
               <button>더 알아보기</button>
             </div>
-            <div className="line">-------------------------</div>
+            <div className="line">-------------------------</div> */}
             <div className="recommend">
               <div className="recommend-string">
                 <label className="main-label">
@@ -135,9 +135,6 @@ const ProductDetail = () => {
                 </div>
                 <button />
               </div>
-            </div>
-            <div className="kakao">
-              <img src="./"></img>
             </div>
             <ProductTab />
           </div>

@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import iconFacebook from './../../assets/footer/icon_facebook.png';
-import iconInstagram from './../../assets/footer/icon_instagram.png';
-import iconKakao from './../../assets/footer/icon_kakao.png';
-import iconNaver from './../../assets/footer/icon_naver.png';
-import iconYoutube from './../../assets/footer/icon_youtube.png';
+import Sns from './Sns';
 
 import './Footer.scss';
 
@@ -20,43 +16,7 @@ const Footer = () => {
               <li>평일 10:00 ~ 18:00, 주말 휴무</li>
             </ul>
           </div>
-          <div className="sns-box">
-            <a
-              href="https://www.instagram.com/sooldamhwa/?hl=ko"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={iconInstagram} alt="인스타그램" />
-            </a>
-            <a
-              href="https://www.youtube.com/channel/UCuhTvdO3VD-S3md_CkWYtbw"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={iconYoutube} alt="유튜브" />
-            </a>
-            <a
-              href="http://pf.kakao.com/_xktAgj"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={iconKakao} alt="카카오" />
-            </a>
-            <a
-              href="https://www.facebook.com/sooldamhwa/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={iconFacebook} alt="페이스북" />
-            </a>
-            <a
-              href="https://blog.naver.com/sooldamhwa"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={iconNaver} alt="네이버" />
-            </a>
-          </div>
+          <Sns />
         </div>
         <ul className="link-area">
           <li>

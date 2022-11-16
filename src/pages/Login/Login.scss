@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.title-login {
+  color: #ffba00;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  width: 335px;
+  margin: 0px auto;
+  padding: 40px 50px 30px;
+  background-color: rgb(255, 255, 255);
+  display: block;
+}
+
+.login-container {
+  .title-email,
+  .title-password {
+    color: #767676;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .login-button {
+    width: 150px;
+    height: 45px;
+    padding: 1px 6px;
+    margin: 7px;
+    border-radius: 10px;
+    border: 1px solid #b2b2b2;
+    color: #bcbcbc;
+    font-weight: bold;
+    font-size: 18px;
+    &:disabled {
+      background-color: red;
+    }
+  }
+
+  .id-input,
+  .password-input {
+    border-bottom: 1px solid #707070;
+    width: 100%;
+    margin-bottom: 50px;
+    font-size: 16px;
+  }
+}
+
+.signup {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  a {
+    color: #0097f3;
+  }
+}
+
+.social-button {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 13px;
+  width: 80%;
+  height: 100px;
+  margin: 0 auto;
+  font-size: 15px;
+  justify-content: center;
+  align-content: space-between;
+  button {
+    img {
+      margin-right: 5px;
+      width: 16px;
+      vertical-align: middle;
+    }
+  }
+
+  .loginButton-kakao {
+    background-color: #ffe80f;
+    color: #59500e;
+    border-radius: 5%;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    border: none;
+  }
+  .loginButton-naver {
+    background-color: #37c736;
+    color: #ffffff;
+    border-radius: 5%;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+  }
+  .loginButton-google {
+    background-color: #ffffff;
+    color: #757575;
+    border-radius: 5%;
+    padding: 10px 10px;
+    border: 1px solid;
+  }
+}
+
+.find-id {
+  margin-top: 20px;
+}
+
+.find-id,
+.find-password {
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #c3c3c3;
+}

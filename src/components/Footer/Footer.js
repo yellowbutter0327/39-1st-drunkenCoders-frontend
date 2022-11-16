@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Sns from './Sns';
-
 import './Footer.scss';
+import Sns from './component/Sns';
 
 const Footer = () => {
   return (

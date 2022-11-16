@@ -1,0 +1,35 @@
+.filter {
+  display: flex;
+  width: 15%;
+  .filter-wrapper {
+    display: flex;
+    align-content: center;
+    border: solid 1px rgb(244, 244, 244);
+    border-radius: 5px;
+
+    .filter-item {
+      display: inline-block;
+      justify-content: space-between;
+
+      .filter-button {
+        display: flex;
+        height: 20px;
+        border-radius: 5px;
+        padding: 18px 12px 12px 10px;
+        align-items: center;
+        margin-bottom: 5px;
+        .filter-name {
+          margin-right: 15px;
+          color: rgb(112, 112, 112);
+          font-size: 13px;
+          font-weight: normal;
+        }
+        .arrow-down {
+          transform: rotate(0deg);
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+  }
+}

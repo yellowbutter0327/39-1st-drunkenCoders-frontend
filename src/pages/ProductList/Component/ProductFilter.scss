@@ -1,0 +1,10 @@
+.filter-box {
+  display: flex;
+  max-width: 1144px;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  .filter-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

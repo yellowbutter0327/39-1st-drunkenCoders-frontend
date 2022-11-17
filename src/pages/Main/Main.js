@@ -208,7 +208,42 @@ const Main = () => {
               <strong>실시간 후기</strong>
             </h3>
           </div>
-          <div className="product-list" />
+          <div className="review-list col3">
+            <Link to="/" className="review-item">
+              <div className="thumb">
+                <img src="/images/cat.jpeg" alt="샘플" />
+              </div>
+              <div className="rating-bg">
+                <div className="rating" style={{ width: '100%' }} />
+              </div>
+              <p className="txt">풀건우</p>
+              <p className="name">풀건우</p>
+            </Link>
+            <Link to="/" className="review-item">
+              <div className="thumb">
+                <img src="/images/cat.jpeg" alt="샘플" />
+              </div>
+              <div className="rating-bg">
+                <div className="rating" style={{ width: '80%' }} />
+              </div>
+              <p className="txt">
+                빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛
+              </p>
+              <p className="name">빛빛빛</p>
+            </Link>
+            <Link to="/" className="review-item">
+              <div className="thumb">
+                <img src="/images/cat.jpeg" alt="샘플" />
+              </div>
+              <div className="rating-bg">
+                <div className="rating" style={{ width: '40%' }} />
+              </div>
+              <p className="txt">
+                킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜
+              </p>
+              <p className="name">킹은혜</p>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

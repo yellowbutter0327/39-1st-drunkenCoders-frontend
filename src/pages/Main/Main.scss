@@ -279,6 +279,62 @@
         }
       }
     }
+    .review-list {
+      display: flex;
+      padding: 0 100px;
+      .review-item {
+        width: 100%;
+        .thumb {
+          border-radius: 20px;
+          overflow: hidden;
+        }
+        .rating-bg {
+          margin: 20px auto 0;
+          width: 100px;
+          height: 20px;
+          background: url(/assets/main/icon_star_score_bg.png) no-repeat;
+          background-size: 100px 20px;
+          .rating {
+            height: 20px;
+            background: url(/assets/main/icon_star_score.png) no-repeat;
+            background-size: 100px 20px;
+          }
+        }
+        .txt {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          margin-top: 30px;
+          height: 60px;
+          line-height: 20px;
+          color: #666;
+          font-size: 13px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        .name {
+          margin-top: 20px;
+          text-align: center;
+          font-size: 13px;
+          font-weight: bold;
+        }
+      }
+      &.col3 {
+        margin-right: -50px;
+        .review-item {
+          margin-right: 50px;
+          width: 300px;
+          .thumb {
+            position: relative;
+            height: 300px;
+            img {
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
     &.type-center {
       .section-tit {
         justify-content: center;

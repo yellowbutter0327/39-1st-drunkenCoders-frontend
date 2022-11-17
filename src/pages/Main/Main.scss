@@ -1,7 +1,7 @@
 .main-wrap {
   .main-slider {
     position: relative;
-    margin: 0 -360px;
+    // margin: 0 -360px;
     overflow: hidden;
     .slider-box {
       display: flex;
@@ -279,9 +279,12 @@
         }
       }
     }
+    .review-slider {
+      padding: 0 100px;
+    }
     .review-list {
       display: flex;
-      padding: 0 100px;
+      overflow: hidden;
       .review-item {
         width: 100%;
         .thumb {
@@ -320,10 +323,11 @@
         }
       }
       &.col3 {
-        margin-right: -50px;
+        margin: 0 -25px;
         .review-item {
-          margin-right: 50px;
-          width: 300px;
+          flex: none;
+          padding: 0 25px;
+          width: 350px;
           .thumb {
             position: relative;
             height: 300px;

@@ -1,0 +1,10 @@
+.sns-box {
+  a {
+    display: inline-block;
+    width: 35px;
+
+    & ~ a {
+      margin-left: 6px;
+    }
+  }
+}

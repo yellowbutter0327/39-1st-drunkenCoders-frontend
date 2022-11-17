@@ -1,12 +1,13 @@
 import { React, useState } from 'react';
-import './ProductDetail.scss';
 import ProductTab from './ProductTab';
+import './ProductDetail.scss';
+import Review from './Review';
 
 const ProductDetail = () => {
-  const [isActive, setActive] = useState('false');
+  const [handleClick, sethandleClick] = useState('false');
 
   const handleToggle = () => {
-    setActive(!isActive);
+    sethandleClick(!handleClick);
   };
   return (
     <>
@@ -34,11 +35,11 @@ const ProductDetail = () => {
                   </div>
                   <div className="rating">
                     <div className="rating-star">
-                      <span>
-                        <img src="./images/kunwooSample/icon-star-score.png"></img>
-                      </span>
-                      <span className="review">[4 리뷰]</span>
+                      <div className="rating-bg">
+                        <div className="rating" style={{ width: '90%' }} />
+                      </div>
                     </div>
+                    <span className="review">[4 리뷰]</span>
                   </div>
                   <div className="sector-third">
                     <div className="flex">
@@ -87,7 +88,7 @@ const ProductDetail = () => {
                 </div>
               </div>
             </div>
-            <div className={isActive ? 'image-stack' : 'image-stack active'}>
+            <div className={handleClick ? 'image-stack' : 'image-stack active'}>
               <img
                 className="imgStack"
                 src="./images/kunwooSample/sampleE.png"
@@ -101,7 +102,7 @@ const ProductDetail = () => {
               <img className="imgStack" src="./images/kunwooSample/white.png" />
               <div className="foled-button-down">
                 <button className="fold-btn" onClick={handleToggle}>
-                  {isActive ? '상품설명 펼치기' : '상품설명 접기'}
+                  {handleClick ? '상품설명 펼치기' : '상품설명 접기'}
                 </button>
               </div>
             </div>
@@ -136,6 +137,8 @@ const ProductDetail = () => {
               </div>
             </div>
             <ProductTab />
+
+            <Review />
           </div>
           <div className="right-side">
             <div className="detail-sideBar">

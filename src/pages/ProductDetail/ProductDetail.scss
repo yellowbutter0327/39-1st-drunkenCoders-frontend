@@ -71,19 +71,21 @@
 
           .rating {
             display: flex;
-            -webkit-box-align: center;
-            align-items: center;
+            align-items: flex-start;
 
-            .rating-star {
-              display: inline-flex;
-              position: relative;
-              font-size: 1.875rem;
-              color: #faaf00;
-              cursor: pointer;
-              text-align: left;
-              -webkit-tap-highlight-color: transparent;
-              pointer-events: none;
-              font-weight: bold;
+            .rating-bg {
+              width: 100px;
+              height: 20px;
+              background: url(/assets/ProductDetail/icon-star-score-bg.png)
+                no-repeat;
+              background-size: 100px 20px;
+
+              .rating {
+                height: 20px;
+                background: url(/assets/ProductDetail/icon-star-score.png)
+                  no-repeat;
+                background-size: 100px 20px;
+              }
             }
 
             .review {

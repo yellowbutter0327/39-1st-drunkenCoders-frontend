@@ -2,19 +2,8 @@ import React, { useState } from 'react';
 import './ProductTab.scss';
 
 const ProductTab = () => {
-  const data = [
-    {
-      id: 0,
-      title: '상품정보',
-      src: './images/kunwooSample/productInfo.png',
-    },
-    {
-      id: 1,
-      title: '교환/반품',
-      src: './images/kunwooSample/change.png',
-    },
-  ];
-  const [index, setIndex] = useState(0);
+  const [currTabId, setCurrTabId] = useState(0);
+
   return (
     <section className="tab">
       <div className="tab-menu">
@@ -22,23 +11,32 @@ const ProductTab = () => {
           <div className="tabtab">
             <button
               key={item.id}
-              className={index === item.id ? 'btn' : 'btn-white'}
-              onClick={() => setIndex(item.id)}
+              className={currTabId === item.id ? 'btn' : 'btn-white'}
+              onClick={() => setCurrTabId(item.id)}
             >
               {item.title}
             </button>
           </div>
         ))}
       </div>
-      {data
-        .filter(item => index === item.id)
-        .map(item => (
-          <div className="tab-content">
-            <img src={item.src} />
-          </div>
-        ))}
+      <div className="tab-content">
+        <img src={data.find(({ id }) => currTabId === id).src} />
+      </div>
     </section>
   );
 };
 
 export default ProductTab;
+
+const data = [
+  {
+    id: 0,
+    title: '상품정보',
+    src: './images/kunwooSample/productInfo.png',
+  },
+  {
+    id: 1,
+    title: '교환/반품',
+    src: './images/kunwooSample/change.png',
+  },
+];

@@ -23,15 +23,18 @@ const Register = () => {
               type="text"
               placeholder="이메일을 입력해주세요"
             />
+            <p className="alert-txt">올바른 이메일을 입력해주세요</p>
           </div>
+
           <div className="form-wrap">
             <label htmlFor="pw">비밀번호</label>
             <input
               id="pw"
               name="userpassword"
               type="password"
-              placeholder="비밀번호를 입력해주세요"
+              placeholder="8자 이상으로 입력해주세요"
             />
+            <p className="alert-txt">비밀번호를 입력해주세요</p>
           </div>
           <div className="form-wrap">
             <label htmlFor="pw2">비밀번호 확인</label>
@@ -41,69 +44,67 @@ const Register = () => {
               type="password"
               placeholder="비밀번호를 한번 더 입력해주세요"
             />
+            <p className="alert-txt">비밀번호가 일치하지 않습니다.</p>
           </div>
           <div className="form-wrap">
-            <label htmlFor="nickname">닉네임</label>
-            <input
-              id="nickname"
-              name="usernickname"
-              type="text"
-              placeholder="닉네임을 입력해주세요"
-            />
+            <div className="nickname-repeat">
+              <label htmlFor="nickname">닉네임</label>
+              <input
+                id="nickname"
+                name="usernickname"
+                type="text"
+                placeholder="2-10글자"
+              />
+              <button className="check-repeat">중복확인</button>
+              <p className="alert-txt">닉네임이 중복되었습니다.</p>
+            </div>
+
+            <p>
+              닉네임을 설정하지 않을 시,
+              <br /> 성함이 가운데 부분이 * 처리된 상태로 노출됩니다. <br />{' '}
+              <span> 예시 홍*동 </span>
+            </p>
+            <button className="check-adult">휴대폰으로 성인인증하기</button>
+
+            <div className="form-wrap">
+              <label>술담화를 어떻게 알게 되셨나요?</label>
+            </div>
           </div>
 
-          {/* <div className="email-signup">
-            <label className="title-email">이메일</label>
-            <input
-              className="email-input"
-              name="useremail"
-              type="text"
-              placeholder="이메일을 입력해주세요"
-            />
-          </div>
-
-          <div className="pw-signup">
-            <label className="title-pw">비밀번호</label>
-            <input
-              className="pw-input"
-              name="userpw"
-              type="text"
-              placeholder="8자 이상 / 영문 / 숫자를 조합해주세요"
-            />
-          </div>
-
-          <div className="check-signup">
-            <label className="check-pw">비밀번호 확인</label>
-            <input
-              className="pwcheck-input"
-              name="pwcheck-input"
-              type="text"
-              placeholder="비밀번호를 한번 더 입력해주세요"
-            />
-          </div>
-
-          <div className="nickname-signup">
-            <label className="nickname"> 닉네임 설정</label>
-            <input
-              className="pwcheck-input"
-              name="pwcheck-input"
-              type="text"
-              placeholder="2-10글자"
-            />
-            <button className="repeat-check">중복확인</button>
-          </div> */}
-
-          <button className="certifi-adult">휴대폰으로 성인 인증하기</button>
-          <div className="quesiton">
-            <label className="question-route">
-              술담화를 어떻게 알게 되셨나요?
-            </label>
-          </div>
+          <select>
+            <option disabled selected>
+              선택해주세요
+            </option>
+            <option>지인소개</option>
+            <option>인스타그램</option>
+            <option>페이스북</option>
+            <option>유투브</option>
+            <option>검색</option>
+            <option>블로그</option>
+            <option>기사/언론</option>
+            <option>기타</option>
+          </select>
 
           <div className="agreement">
-            이용약관 및 개인정보처리방침 내용을 <br /> 확인 하였으며, 이에
-            동의합니다.
+            <span className="blue">이용약관</span> 및{' '}
+            <span className="blue">개인정보처리방침</span> 내용을 <br /> 확인
+            하였으며, 이에 동의합니다.
           </div>
+
+          <div className="agreement-checkbox">
+            <div className="agreement">
+              <span className="blue">이용약관</span> 동의{' '}
+              <span className="red">[필수] </span>{' '}
+              <input type="checkbox" value="coding" checked />
+            </div>
+            <div className="agreement">
+              <span className="blue">개인정보처리방침</span> 동의{' '}
+              <span className="red">[필수] </span>
+              <input type="checkbox" value="music" checked />
+            </div>
+          </div>
+
+          <button className="finish-register">가입완료</button>
         </div>
       </div>
     </div>

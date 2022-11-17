@@ -34,6 +34,25 @@
         }
       }
     }
+    .slide-pagination {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      padding: 0 10px;
+      color: #fff;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      transform: translateX(-50%);
+      span {
+        display: inline-block;
+        margin: 0 3px;
+        line-height: 24px;
+        font-size: 12px;
+        &.current {
+          font-weight: bold;
+        }
+      }
+    }
   }
   .main-link-area {
     padding: 30px 0;
@@ -46,37 +65,37 @@
       min-width: 78px;
       font-size: 12px;
       text-align: center;
-      &:first-child {
+      &.icon1 {
         margin-left: 0;
         background: url(/assets/main/icon_takju.png) no-repeat center top;
         background-size: 44px;
       }
-      &:nth-child(2) {
+      &.icon2 {
         background: url(/assets/main/icon_cheongju.png) no-repeat center top;
         background-size: 44px;
       }
-      &:nth-child(3) {
+      &.icon3 {
         background: url(/assets/main/icon_gwashilju.png) no-repeat center top;
         background-size: 44px;
       }
-      &:nth-child(4) {
+      &.icon4 {
         background: url(/assets/main/icon_jeungryuju.png) no-repeat center top;
         background-size: 44px;
       }
-      &:nth-child(5) {
+      &.icon5 {
         background: url(/assets/main/icon_gift.png) no-repeat center top;
         background-size: 44px;
       }
-      &:nth-child(6) {
+      &.icon6 {
         background: url(/assets/main/icon_only_sooldamhwa.png) no-repeat center
           top;
         background-size: 44px;
       }
-      &:nth-child(7) {
+      &.icon7 {
         background: url(/assets/main/icon_event.png) no-repeat center top;
         background-size: 44px;
       }
-      &:nth-child(8) {
+      &.icon8 {
         background: url(/assets/main/icon_bizgift.png) no-repeat center top;
         background-size: 44px;
       }

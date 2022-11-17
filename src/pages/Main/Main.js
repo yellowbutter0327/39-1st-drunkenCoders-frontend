@@ -69,31 +69,35 @@ const Main = () => {
               next
             </button>
           </div>
+          <div className="slide-pagination">
+            <span className="current">{current + 1}</span>/
+            <span>{carouselSlider.length}</span>
+          </div>
         </div>
 
         <div className="main-link-area">
-          <Link to="/">
+          <Link to="/" className="icon1">
             <span>탁주</span>
           </Link>
-          <Link to="/">
+          <Link to="/" className="icon2">
             <span>약·청주</span>
           </Link>
-          <Link to="/">
+          <Link to="/" className="icon3">
             <span>과실주</span>
           </Link>
-          <Link to="/">
+          <Link to="/" className="icon4">
             <span>증류주</span>
           </Link>
-          <Link to="/">
+          <Link to="/" className="icon5">
             <span>선물세트</span>
           </Link>
-          <Link to="/">
+          <Link to="/" className="icon6">
             <span>ONLY 술담화</span>
           </Link>
-          <Link to="/">
+          <Link to="/" className="icon7">
             <span>이벤트</span>
           </Link>
-          <Link to="/">
+          <Link to="/" className="icon8">
             <span>기업구매</span>
           </Link>
         </div>

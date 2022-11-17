@@ -1,97 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Main.scss';
+import Banner from './../Main/component/Banner/Banner';
 import iconPick from './../../assets/main/icon_pick.png';
 import iconClock from './../../assets/main/icon_clock.png';
 import iconOmija from './../../assets/main/icon_omija.png';
 import iconBox from './../../assets/main/icon_box.png';
 import iconSpeaker from './../../assets/main/icon_speaker.png';
 import iconStar from './../../assets/main/icon_star.png';
+import './Main.scss';
 
 const Main = () => {
-  const [current, setCurrent] = useState(0);
-  const [location, setLocation] = useState({
-    transform: `translateX(-${current}00%)`,
-  });
-
-  const moveSlide = i => {
-    let nextIndex = current + i;
-
-    if (nextIndex >= carouselSlider.length) {
-      nextIndex = 0;
-    } else if (nextIndex < 0) {
-      nextIndex = carouselSlider.length - 1;
-    }
-
-    setCurrent(nextIndex);
-  };
-
-  useEffect(() => {
-    setLocation({ transform: `translateX(-${current}00%)` });
-  }, [current]);
-
   return (
     <div className="container">
       <div className="main-wrap">
-        <div className="main-slider">
-          <div className="slider-box" style={location}>
-            {carouselSlider.map(ele => {
-              return (
-                <div className="slide" key={ele.id}>
-                  <img src={ele.src} alt="샘플 배너" />
-                </div>
-              );
-            })}
-          </div>
-          <div className="slide-btn">
-            <button
-              type="button"
-              className="btn-prev"
-              onClick={() => {
-                moveSlide(-1);
-              }}
-            >
-              prev
-            </button>
-            <button
-              type="button"
-              className="btn-next"
-              onClick={() => {
-                moveSlide(1);
-              }}
-            >
-              next
-            </button>
-          </div>
-          <div className="slide-pagination">
-            <span className="current">{current + 1}</span>/
-            <span>{carouselSlider.length}</span>
-          </div>
-        </div>
+        <Banner />
 
         <div className="main-link-area">
-          <Link to="/" className="icon1">
+          <Link to="/productList" className="icon1">
             <span>탁주</span>
           </Link>
-          <Link to="/" className="icon2">
+          <Link to="/productList" className="icon2">
             <span>약·청주</span>
           </Link>
-          <Link to="/" className="icon3">
+          <Link to="/productList" className="icon3">
             <span>과실주</span>
           </Link>
-          <Link to="/" className="icon4">
+          <Link to="/productList" className="icon4">
             <span>증류주</span>
           </Link>
-          <Link to="/" className="icon5">
+          <Link to="/productList" className="icon5">
             <span>선물세트</span>
           </Link>
-          <Link to="/" className="icon6">
+          <Link to="/productList" className="icon6">
             <span>ONLY 술담화</span>
           </Link>
-          <Link to="/" className="icon7">
+          <Link to="/productList" className="icon7">
             <span>이벤트</span>
           </Link>
-          <Link to="/" className="icon8">
+          <Link to="/productList" className="icon8">
             <span>기업구매</span>
           </Link>
         </div>
@@ -133,9 +79,9 @@ const Main = () => {
               <div className="product">
                 <span className="tag red">특가</span>
                 <p className="txt">
-                  국내외 다양한 수상으로 인정받은 와인이에요!
+                  국내외 다양한 수상으로 인정받은 고앵이에요!
                 </p>
-                <p className="tit">[신상품] 비원 드라이 레드</p>
+                <p className="tit">[신상품] 귀여운 떼껄룩</p>
                 <div className="info">
                   <ul className="review-area">
                     <li>
@@ -273,11 +219,11 @@ const Main = () => {
                 <p className="name">킹은혜</p>
               </Link>
             </div>
-            <div className="slider-btn">
-              <button type="button" class="btn-prev">
+            <div className="slide-btn">
+              <button type="button" className="btn-prev">
                 prev
               </button>
-              <button type="button" class="btn-next">
+              <button type="button" className="btn-next">
                 next
               </button>
             </div>
@@ -289,9 +235,3 @@ const Main = () => {
 };
 
 export default Main;
-
-const carouselSlider = [
-  { id: 1, src: '/images/visual_1.jpg' },
-  { id: 2, src: '/images/visual_2.jpg' },
-  { id: 3, src: '/images/visual_3.jpg' },
-];

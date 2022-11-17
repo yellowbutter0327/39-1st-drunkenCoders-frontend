@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './../../assets/nav/mainLogo.png';
-import searchIcon from './../../assets/nav/searchIcon.svg';
+import logo from './../../assets/Nav/mainLogo.png';
+import searchIcon from './../../assets/Nav/searchIcon.svg';
 
 import './Nav.scss';
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import iconInstagram from './../../../assets/footer/icon_instagram.png';
-import iconYoutube from './../../../assets/footer/icon_youtube.png';
-import iconKakao from './../../../assets/footer/icon_kakao.png';
-import iconFacebook from './../../../assets/footer/icon_facebook.png';
-import iconNaver from './../../../assets/footer/icon_naver.png';
+import iconInstagram from './../../../assets/Footer/icon_instagram.png';
+import iconYoutube from './../../../assets/Footer/icon_youtube.png';
+import iconKakao from './../../../assets/Footer/icon_kakao.png';
+import iconFacebook from './../../../assets/Footer/icon_facebook.png';
+import iconNaver from './../../../assets/Footer/icon_naver.png';
 import './Sns.scss';
 
 const Sns = () => {

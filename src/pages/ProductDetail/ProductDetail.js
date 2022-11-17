@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import ProductTab from './ProductTab';
-import './ProductDetail.scss';
 import Review from './Review';
+import './ProductDetail.scss';
 
 const ProductDetail = () => {
   const [handleClick, sethandleClick] = useState('false');

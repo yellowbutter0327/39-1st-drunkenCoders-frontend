@@ -13,7 +13,7 @@ const ProductItem = roops => {
                 <span />
                 <img
                   className="product-img"
-                  src="/images/goodcat.jpeg"
+                  src="/images/cat.jpeg"
                   alt="drink"
                 />
               </span>

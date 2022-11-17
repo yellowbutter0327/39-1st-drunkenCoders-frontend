@@ -4,7 +4,7 @@ import './ProductListHead.scss';
 const ProductListHead = () => {
   return (
     <div className="header-wrapper">
-      <div className="header">
+      <div className="header-box">
         <div className="header-title-box">
           <div className="header-title">전체상품</div>
           <div className="header-subtitle">

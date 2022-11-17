@@ -1,0 +1,106 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  z-index: 100;
+
+  .inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 100%;
+
+    h1 {
+      width: 85px;
+
+      a {
+        display: inline-flex;
+      }
+    }
+
+    .link-area {
+      margin-left: 30px;
+
+      a {
+        margin-left: 20px;
+        color: #666;
+        font-size: 16px;
+        font-weight: bold;
+
+        &.active {
+          color: #ffba00;
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .search-area {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+      width: 220px;
+      height: 40px;
+      padding: 0 10px;
+      border-radius: 4px;
+      background: #f2f2f2;
+
+      img {
+        width: 16px;
+      }
+
+      .txt {
+        margin-left: 10px;
+        color: #aaa;
+      }
+    }
+
+    .info-area {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+
+      a {
+        color: #444;
+        vertical-align: middle;
+
+        & + * {
+          margin-left: 20px;
+        }
+
+        &.cart {
+          position: relative;
+          display: inline-block;
+          width: 28px;
+          height: 28px;
+          text-indent: -9999px;
+          background: url(/assets/Nav/basketIcon.png) no-repeat;
+          background-size: 28px;
+
+          .num {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 14px;
+            height: 14px;
+            color: #fff;
+            font-size: 10px;
+            text-align: center;
+            text-indent: 0;
+            border-radius: 50%;
+            background: #444;
+          }
+        }
+      }
+    }
+  }
+}

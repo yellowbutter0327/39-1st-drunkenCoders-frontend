@@ -1,5 +1,6 @@
 .option-box {
   margin: 15px 0px 0px 15px;
+
   .option-container {
     box-sizing: border-box;
     display: flex;
@@ -13,12 +14,15 @@
       flex-basis: 50%;
       flex-grow: 0;
       max-width: 30%;
+
       .option-item {
         display: flex;
         margin-bottom: 22px;
         box-sizing: border-box;
+
         .option-check-box {
           display: block;
+
           .option-check-button {
             padding: 0;
             display: flex;
@@ -31,12 +35,14 @@
             background-color: transparent;
             border: none;
             outline: none;
+
             .check-box-img {
               width: 20px;
               height: 20px;
             }
           }
         }
+
         .option-text {
           margin-left: 15px;
           cursor: pointer;

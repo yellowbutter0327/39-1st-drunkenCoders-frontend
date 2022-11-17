@@ -1,7 +1,7 @@
 import React from 'react';
 import './DropdownItem.scss';
 
-const DropdonwItem = props => {
+const DropdownItem = props => {
   return (
     <div className="option-box">
       <div className="option-container">
@@ -24,4 +24,4 @@ const DropdonwItem = props => {
   );
 };
 
-export default DropdonwItem;
+export default DropdownItem;

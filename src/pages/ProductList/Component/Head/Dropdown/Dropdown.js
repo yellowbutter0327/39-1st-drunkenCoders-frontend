@@ -1,18 +1,18 @@
-import React from 'react';
-import './Dropdown.scss';
+import React, { useState } from 'react';
 import DropdownList from './DropdownList';
 import DropdonwItem from './DropdownItem';
+import './Dropdown.scss';
 
 const Dropdown = props => {
-  const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
+  const [isDropdownVisibility, setIsDropdownVisibility] = useState(false);
 
   return (
     <div className="filter-box-wrapper">
       <button
         className="filter-button"
-        onClick={e => setDropdownVisibility(!dropdownVisibility)}
+        onClick={e => setIsDropdownVisibility(!isDropdownVisibility)}
       >
-        {dropdownVisibility}
+        {isDropdownVisibility}
         <span className="filter-name">주종</span>
         <img
           className="arrow-down"
@@ -20,7 +20,7 @@ const Dropdown = props => {
           alt="arrow-down"
         />
       </button>
-      <DropdownList visibility={dropdownVisibility}>
+      <DropdownList visibility={isDropdownVisibility}>
         <div className="option-box-wrapper">
           <DropdonwItem />
           <DropdonwItem />

@@ -13,6 +13,7 @@
     .search-result {
       display: flex;
       font-size: 14px;
+
       .result-number {
         font-weight: bold;
         margin-right: 2px;
@@ -28,20 +29,24 @@
 
       .filter-selector-box {
         display: flex;
+
         .filter-selector {
           display: flex;
         }
       }
     }
   }
+
   .item-container {
     display: flex;
     flex-wrap: wrap;
     margin-left: -16px;
     height: auto;
+
     .product-info-box {
       width: 25%;
     }
+
     &.col3 {
       .product-info-box {
         width: 33.333%;

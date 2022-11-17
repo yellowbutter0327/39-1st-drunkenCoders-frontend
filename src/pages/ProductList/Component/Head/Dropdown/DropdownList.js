@@ -1,12 +1,12 @@
 import React from 'react';
 import './DropdownList.scss';
 
-const DropdownList = props => {
+const DropdownList = ({ visibility, children }) => {
   const [visibilityAnimation, setVisibilityAnimation] = React.useState(false);
   const [repeat, setRepeat] = React.useState(null);
 
   React.useEffect(() => {
-    if (props.visibility) {
+    if (visibility) {
       clearTimeout(repeat);
       setRepeat(null);
       setVisibilityAnimation(true);
@@ -17,15 +17,15 @@ const DropdownList = props => {
         }, 400)
       );
     }
-  }, [props.visibility]);
+  }, [visibility]);
 
   return (
     <article
       className={`components-dropdown ${
-        props.visibility ? 'slide-fade-in-dropdown' : 'slide-fade-out-dropdown'
+        visibility ? 'slide-fade-in-dropdown' : 'slide-fade-out-dropdown'
       }`}
     >
-      {visibilityAnimation && props.children}
+      {visibilityAnimation && children}
     </article>
   );
 };

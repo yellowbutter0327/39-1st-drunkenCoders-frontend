@@ -4,10 +4,12 @@ import './FilterSelector.scss';
 
 const FilterSelector = roops => {
   return (
-    <div className="filter">
-      <div className="filter-wrapper">
-        <div className="filter-item">
-          <Dropdown />
+    <div className="filter-box">
+      <div className="filter">
+        <div className="filter-wrapper">
+          <div className="filter-item">
+            <Dropdown />
+          </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from './../Main/component/Banner/Banner';
+import Review from './../Main/component/Review/Review';
 import iconPick from './../../assets/main/icon_pick.png';
 import iconClock from './../../assets/main/icon_clock.png';
 import iconOmija from './../../assets/main/icon_omija.png';
@@ -148,86 +149,7 @@ const Main = () => {
               <strong>실시간 후기</strong>
             </h3>
           </div>
-          <div className="review-slider">
-            <div className="review-list col3">
-              <Link to="/" className="review-item">
-                <div className="thumb">
-                  <img src="/images/cat.jpeg" alt="샘플" />
-                </div>
-                <div className="rating-bg">
-                  <div className="rating" style={{ width: '100%' }} />
-                </div>
-                <p className="txt">풀건우</p>
-                <p className="name">풀건우</p>
-              </Link>
-              <Link to="/" className="review-item">
-                <div className="thumb">
-                  <img src="/images/cat.jpeg" alt="샘플" />
-                </div>
-                <div className="rating-bg">
-                  <div className="rating" style={{ width: '80%' }} />
-                </div>
-                <p className="txt">
-                  빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛
-                </p>
-                <p className="name">빛빛빛</p>
-              </Link>
-              <Link to="/" className="review-item">
-                <div className="thumb">
-                  <img src="/images/cat.jpeg" alt="샘플" />
-                </div>
-                <div className="rating-bg">
-                  <div className="rating" style={{ width: '40%' }} />
-                </div>
-                <p className="txt">
-                  킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜
-                </p>
-                <p className="name">킹은혜</p>
-              </Link>
-              <Link to="/" className="review-item">
-                <div className="thumb">
-                  <img src="/images/cat.jpeg" alt="샘플" />
-                </div>
-                <div className="rating-bg">
-                  <div className="rating" style={{ width: '100%' }} />
-                </div>
-                <p className="txt">풀건우</p>
-                <p className="name">풀건우</p>
-              </Link>
-              <Link to="/" className="review-item">
-                <div className="thumb">
-                  <img src="/images/cat.jpeg" alt="샘플" />
-                </div>
-                <div className="rating-bg">
-                  <div className="rating" style={{ width: '80%' }} />
-                </div>
-                <p className="txt">
-                  빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛빛
-                </p>
-                <p className="name">빛빛빛</p>
-              </Link>
-              <Link to="/" className="review-item">
-                <div className="thumb">
-                  <img src="/images/cat.jpeg" alt="샘플" />
-                </div>
-                <div className="rating-bg">
-                  <div className="rating" style={{ width: '40%' }} />
-                </div>
-                <p className="txt">
-                  킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜킹은혜
-                </p>
-                <p className="name">킹은혜</p>
-              </Link>
-            </div>
-            <div className="slide-btn">
-              <button type="button" className="btn-prev">
-                prev
-              </button>
-              <button type="button" className="btn-next">
-                next
-              </button>
-            </div>
-          </div>
+          <Review />
         </div>
       </div>
     </div>

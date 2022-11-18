@@ -2,31 +2,37 @@ import React, { useState, useEffect } from 'react';
 import './Banner.scss';
 
 const Banner = () => {
-  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
   const [xValue, setXValue] = useState({
-    transform: `translateX(-${current}00%)`,
+    transform: `translateX(-${count}00%)`,
   });
 
   const moveSlide = i => {
-    let idx = current + i;
+    let idx = count + i;
 
-    if (idx >= bannerSlider.length) {
+    if (idx >= bannerList.length) {
       idx = 0;
     } else if (idx < 0) {
-      idx = bannerSlider.length - 1;
+      idx = bannerList.length - 1;
     }
 
-    setCurrent(idx);
+    setCount(idx);
   };
 
   useEffect(() => {
-    setXValue({ transform: `translateX(-${current}00%)` });
-  }, [current]);
+    setXValue({ transform: `translateX(-${count}00%)` });
+
+    const interval = setTimeout(() => {
+      moveSlide(1);
+    }, 3000);
+
+    return () => clearTimeout(interval);
+  }, [count]);
 
   return (
     <div className="banner-slider">
       <div className="slider-box" style={xValue}>
-        {bannerSlider.map(img => {
+        {bannerList.map(img => {
           return (
             <div className="slide" key={img.id}>
               <img src={img.src} alt="샘플 배너" />
@@ -55,8 +61,8 @@ const Banner = () => {
         </button>
       </div>
       <div className="slide-pagination">
-        <span className="current">{current + 1}</span>/
-        <span>{bannerSlider.length}</span>
+        <span className="count">{count + 1}</span>/
+        <span>{bannerList.length}</span>
       </div>
     </div>
   );
@@ -64,8 +70,9 @@ const Banner = () => {
 
 export default Banner;
 
-const bannerSlider = [
+const bannerList = [
   { id: 1, src: '/images/visual_1.jpg' },
   { id: 2, src: '/images/visual_2.jpg' },
   { id: 3, src: '/images/visual_3.jpg' },
+  { id: 4, src: '/images/visual_4.jpg' },
 ];

@@ -8,7 +8,7 @@ const Leftside = () => {
   const params = useParams();
   const productId = params.id;
 
-  const [handleClick, sethandleClick] = useState(false);
+  const [handleClick, sethandleClick] = useState('false');
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {

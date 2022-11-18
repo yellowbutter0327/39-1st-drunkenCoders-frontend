@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ProductTab from './ProductTab';
 import Review from './Review';
 import './Leftside.scss';
 
 const Leftside = () => {
-  const [handleClick, sethandleClick] = useState('false');
+  const params = useParams();
+  const productId = params.id;
+
+  const [handleClick, sethandleClick] = useState(false);
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
@@ -13,10 +17,10 @@ const Leftside = () => {
     })
       .then(res => res.json())
       .then(data => {
-        setProductData(data);
+        setProductData(data[0]);
         console.log(data);
       });
-  }, []);
+  }, [productId]);
 
   const handleToggle = () => {
     sethandleClick(!handleClick);
@@ -33,40 +37,39 @@ const Leftside = () => {
         </div>
         <div className="detail-string">
           <div className="sector-first">
-            <div className="detail-mainString">문희 오미자 가향주</div>
+            <div className="detail-mainString">{productData.productName}</div>
           </div>
           <div className="sector-second">
-            <div className="detail-secondString">
-              문경 오미자가 들어간 프리미엄 탁주
-            </div>
-            <div className="detail-hashtag">
-              #오미자 새콤달콤 #모든 과정 수제
-            </div>
+            <div className="detail-secondString">{productData.productSub}</div>
+            <div className="detail-hashtag">{productData.hashTag}</div>
             <div className="rating">
               <div className="rating-star">
                 <div className="rating-bg">
-                  <div className="rating" style={{ width: '100%' }} />
+                  <div
+                    className="rating"
+                    style={{ width: productData.width }}
+                  />
                 </div>
               </div>
-              <span className="review">[4 리뷰]</span>
+              <span className="review">{productData.review}</span>
             </div>
             <div className="sector-third">
               <div className="flex">
                 <label className="third-string">주종:</label>
-                <span className="third-string">탁주</span>
+                <span className="third-string">{productData.kind}</span>
               </div>
               <div className="flex">
                 <label className="third-string">도수:</label>
-                <span className="third-string">12%</span>
+                <span className="third-string">{productData.alchol}</span>
               </div>
               <div className="flex">
                 <label className="third-string">용량:</label>
-                <span className="third-string">500ml</span>
+                <span className="third-string">{productData.ml}</span>
               </div>
               <div className="flex">
                 <div className="delivery_string">
                   <label>배송기간:</label>
-                  <span>월/수/금요일 출고 (2일 이내 배송)</span>
+                  <span>{productData.delivery}</span>
                 </div>
               </div>
             </div>
@@ -76,7 +79,7 @@ const Leftside = () => {
               </div>
               <div className="flex-discount">
                 <div className="discountBox">
-                  <span>26,000원</span>
+                  <span>{productData.price}원</span>
                 </div>
               </div>
               <div className="fourth-div">
@@ -96,11 +99,11 @@ const Leftside = () => {
         </div>
       </div>
       <div className={handleClick ? 'image-stack' : 'image-stack active'}>
-        <img className="imgStack" src="./images/kunwooSample/sampleE.png" />
+        <img className="imgStack" src={productData.detail_img1} />
 
-        <img className="imgStack" src="./images/kunwooSample/smple.png" />
-        <img className="imgStack" src="./images/kunwooSample/sssample.png" />
-        <img className="imgStack" src="./images/kunwooSample/white.png" />
+        <img className="imgStack" src={productData.detail_img2} />
+        <img className="imgStack" src={productData.detail_img3} />
+        <img className="imgStack" src={productData.detail_img4} />
         <div className="foled-button-down">
           <button className="fold-btn" onClick={handleToggle}>
             {handleClick ? '상품설명 펼치기' : '상품설명 접기'}

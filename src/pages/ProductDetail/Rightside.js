@@ -66,7 +66,7 @@ const Rightside = () => {
           <label>총 상품가격</label>
         </div>
         <div className="select-wrapper">
-          <span>{productPrice}원</span>
+          <span>{productPrice.toLocaleString()}원</span>
         </div>
         <div className="delivery">
           <div className="delivery-icon">

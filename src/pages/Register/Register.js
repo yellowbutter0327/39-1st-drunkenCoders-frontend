@@ -1,24 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import iconsignup from '../../assets/register/signup.png';
 import './Register.scss';
 
+const reg = '^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$';
+
+const rules = {
+  useremail: email => email.includes('@'),
+  userpassword: password => password.length >= 8 && password.test(reg),
+  userpassword2: (password2, password) => password2 === password,
+};
+
 const Register = () => {
+  // 이메일, 비밀번호, 비밀번호 확인, 닉네임
+  const [userInfo, setUserInfo] = useState({
+    useremail: '',
+    userpassword: '',
+    userpassword2: '',
+    usernickname: '',
+  });
+
+  const [isDuplicate, setIsDuplicate] = useState(true);
+
+  const [isValid, setIsValid] = useState({
+    useremail: true,
+    userpassword: true,
+    userpassword2: true,
+    usernickname: true,
+  });
+
+  const getUserInfo = e => {
+    const { name, value } = e.target;
+    // 1. spread operator로 기존 내용을 복사
+    // 2. 계산된 속성명으로 수정되는 값 업데이트
+    setUserInfo({ ...userInfo, [name]: value });
+    setIsValid({ ...isValid, [name]: rules[name](value, userInfo.password) });
+  };
+
+  // 이메일 검사 : @가 포함될것.
+  const idValueChecked = userInfo.useremail.includes('@');
+  // 비밀번호 검사 : 8글자 이상일 것.
+  const pwValueChecked = userInfo.userpassword.length >= 8 && reg.test(test);
+  const pwRepeatChecked = userInfo.userpassword === userInfo.userpassword2;
+
+  //버튼 활성화하기
+  // 검사한 모든 로직의 유효성 검사가 true가 될때 getIsActive함수가 작동한다. 버튼 클릭 이벤트가 발생할때 넣어줄 함수.
+  const isButtonActive =
+    idValueChecked && pwValueChecked && pwRepeatChecked && !isDuplicate;
+
+  // 유효성 검사 중 하나라도 만족하지못할때 즉, 버튼이 비활성화 될 때 버튼을 클릭하면 아래와 같은 경고창이 뜬다.
+  const handleButtonValid = () => {
+    if (!isButtonActive) {
+      alert('please fill in the blanks');
+    }
+  };
+
+  const checkIsDuplicate = () => {};
+
   return (
     <div className="all-container">
       <div className="container">
         <h4 className="signup">회원가입</h4>
-        <img
-          className="iconsignup"
-          src={iconsignup}
-          alt="회원가입 아이콘"
-        ></img>
+        <img className="iconsignup" src={iconsignup} alt="회원가입 아이콘" />
 
         <div className="signup-form">
           <div className="form-wrap">
             <label htmlFor="email">이메일</label>
             <input
-              id="email"
+              onChange={getUserInfo}
+              className={isValid.useremail ? '' : 'error'}
               name="useremail"
               type="text"
               placeholder="이메일을 입력해주세요"
@@ -29,17 +79,20 @@ const Register = () => {
           <div className="form-wrap">
             <label htmlFor="pw">비밀번호</label>
             <input
-              id="pw"
+              onChange={getUserInfo}
+              className={isValid.userpassword ? '' : 'error'}
               name="userpassword"
               type="password"
-              placeholder="8자 이상으로 입력해주세요"
+              placeholder="영문, 숫자, 특수문자를 포함해서 8자 이상으로 입력해주세요"
             />
             <p className="alert-txt">비밀번호를 입력해주세요</p>
           </div>
+
           <div className="form-wrap">
             <label htmlFor="pw2">비밀번호 확인</label>
             <input
-              id="pw2"
+              onChange={getUserInfo}
+              className={isValid.userpassword2 ? '' : 'error'}
               name="userpassword2"
               type="password"
               placeholder="비밀번호를 한번 더 입력해주세요"
@@ -50,20 +103,24 @@ const Register = () => {
             <div className="nickname-repeat">
               <label htmlFor="nickname">닉네임</label>
               <input
-                id="nickname"
+                onChange={getUserInfo}
+                className={'nickname' && 'error'}
                 name="usernickname"
                 type="text"
-                placeholder="2-10글자"
+                placeholder="닉네임"
               />
-              <button className="check-repeat">중복확인</button>
+              <button className="check-repeat" onClick={checkIsDuplicate}>
+                중복확인
+              </button>
               <p className="alert-txt">닉네임이 중복되었습니다.</p>
             </div>
 
-            <p>
+            <p className="alert-name">
               닉네임을 설정하지 않을 시,
-              <br /> 성함이 가운데 부분이 * 처리된 상태로 노출됩니다. <br />{' '}
+              <br /> 성함이 가운데 부분이 * 처리된 상태로 노출됩니다. <br />
               <span> 예시 홍*동 </span>
             </p>
+
             <button className="check-adult">휴대폰으로 성인인증하기</button>
 
             <div className="form-wrap">
@@ -86,25 +143,30 @@ const Register = () => {
           </select>
 
           <div className="agreement">
-            <span className="blue">이용약관</span> 및{' '}
-            <span className="blue">개인정보처리방침</span> 내용을 <br /> 확인
-            하였으며, 이에 동의합니다.
+            <span className="blue">이용약관</span> 및
+            <span className="blue"> 개인정보처리방침</span> 내용을 <br />
+            확인하였으며, 이에 동의합니다.
           </div>
 
           <div className="agreement-checkbox">
             <div className="agreement">
-              <span className="blue">이용약관</span> 동의{' '}
-              <span className="red">[필수] </span>{' '}
+              <span className="blue">이용약관</span> 동의
+              <span className="red"> [필수] </span>
               <input type="checkbox" value="coding" checked />
             </div>
             <div className="agreement">
-              <span className="blue">개인정보처리방침</span> 동의{' '}
-              <span className="red">[필수] </span>
+              <span className="blue">개인정보처리방침</span> 동의
+              <span className="red"> [필수] </span>
               <input type="checkbox" value="music" checked />
             </div>
           </div>
 
-          <button className="finish-register">가입완료</button>
+          <button
+            className={`submit-btn${isButtonActive ? ' registerAction' : ''}`}
+            onClick={handleButtonValid}
+          >
+            가입 완료
+          </button>
         </div>
       </div>
     </div>

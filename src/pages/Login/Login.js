@@ -45,9 +45,10 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         // 백엔드가 보내주는 메시지를 토대로 분기처리
-        if (data.message === '로그인 성공!') {
-          localStorage.setItem('token', data.access_token);
+        if (data.accessToken) {
+          localStorage.setItem('token', data.accessToken);
           navigate('/main');
         } else {
           alert('아이디와 비밀번호를 확인해주세요!');

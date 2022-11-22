@@ -2,29 +2,55 @@ import React, { useState, useEffect } from 'react';
 import './Banner.scss';
 
 const Banner = () => {
-  const [count, setCount] = useState(0);
-  const [xValue, setXValue] = useState({
-    transform: `translateX(-${count}00%)`,
-    transition: '0.5s',
-  });
+  const [count, setCount] = useState(1);
+  const [transition, setTransition] = useState('0.2s');
 
-  const moveSlide = i => {
-    let idx = count + i;
+  const newArray = arr => {
+    const startData = arr[0];
+    const endData = arr[arr.length - 1];
+    const modifiedArray = [endData, ...arr, startData];
+    return modifiedArray;
+  };
 
-    if (idx >= bannerList.length) {
-      idx = 0;
-    } else if (idx < 0) {
-      idx = bannerList.length - 1;
+  const prevBtn = () => {
+    const newCurr = count - 1;
+    setCount(newCurr);
+
+    if (newCurr === 0) {
+      slideMov(bannerList.length);
     }
 
-    setCount(idx);
+    setTransition('0.2s');
+  };
+
+  const nextBtn = () => {
+    const newCurr = count + 1;
+    setCount(newCurr);
+
+    if (newCurr === bannerList.length + 1) {
+      slideMov(1);
+    }
+
+    setTransition('0.2s');
+  };
+
+  const slideMov = i => {
+    setTimeout(() => {
+      setTransition('');
+      setCount(i);
+    }, 500);
   };
 
   useEffect(() => {
-    setXValue({ transform: `translateX(-${count}00%)`, transition: '0.5s' });
-
     const interval = setTimeout(() => {
-      moveSlide(1);
+      const newCurr = count + 1;
+      setCount(newCurr);
+
+      if (newCurr === bannerList.length + 1) {
+        slideMov(1);
+      }
+
+      setTransition('0.2s');
     }, 3000);
 
     return () => clearTimeout(interval);
@@ -32,8 +58,14 @@ const Banner = () => {
 
   return (
     <div className="banner-slider">
-      <div className="slider-box" style={xValue}>
-        {bannerList.map(img => {
+      <div
+        className="slider-box"
+        style={{
+          transform: `translateX(-${count}00%)`,
+          transition: `${transition}`,
+        }}
+      >
+        {newArray(bannerList).map(img => {
           return (
             <div className="slide" key={img.id}>
               <img src={img.src} alt="샘플 배너" />
@@ -42,28 +74,15 @@ const Banner = () => {
         })}
       </div>
       <div className="slide-btn">
-        <button
-          type="button"
-          className="btn-prev"
-          onClick={() => {
-            moveSlide(-1);
-          }}
-        >
+        <button type="button" className="btn-prev" onClick={prevBtn}>
           prev
         </button>
-        <button
-          type="button"
-          className="btn-next"
-          onClick={() => {
-            moveSlide(1);
-          }}
-        >
+        <button type="button" className="btn-next" onClick={nextBtn}>
           next
         </button>
       </div>
       <div className="slide-pagination">
-        <span className="count">{count + 1}</span>/
-        <span>{bannerList.length}</span>
+        <span className="count">{count}</span>/<span>{bannerList.length}</span>
       </div>
     </div>
   );

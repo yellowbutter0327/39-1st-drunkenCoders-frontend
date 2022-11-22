@@ -5,6 +5,7 @@ const Banner = () => {
   const [count, setCount] = useState(0);
   const [xValue, setXValue] = useState({
     transform: `translateX(-${count}00%)`,
+    transition: '0.5s',
   });
 
   const moveSlide = i => {
@@ -20,7 +21,7 @@ const Banner = () => {
   };
 
   useEffect(() => {
-    setXValue({ transform: `translateX(-${count}00%)` });
+    setXValue({ transform: `translateX(-${count}00%)`, transition: '0.5s' });
 
     const interval = setTimeout(() => {
       moveSlide(1);

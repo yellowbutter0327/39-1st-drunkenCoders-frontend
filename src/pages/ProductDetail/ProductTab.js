@@ -7,7 +7,7 @@ const ProductTab = () => {
   return (
     <section className="tab">
       <div className="tab-menu">
-        {data.map(item => (
+        {Tapdata.map(item => (
           <div className="tabtab">
             <button
               key={item.id}
@@ -20,7 +20,7 @@ const ProductTab = () => {
         ))}
       </div>
       <div className="tab-content">
-        <img src={data.find(({ id }) => currTabId === id).src} />
+        <img src={Tapdata.find(({ id }) => currTabId === id).src} />
       </div>
     </section>
   );
@@ -28,15 +28,15 @@ const ProductTab = () => {
 
 export default ProductTab;
 
-const data = [
+const Tapdata = [
   {
     id: 0,
     title: '상품정보',
-    src: './images/kunwooSample/productInfo.png',
+    src: '/images/kunwooSample/productInfo.png',
   },
   {
     id: 1,
     title: '교환/반품',
-    src: './images/kunwooSample/change.png',
+    src: '/images/kunwooSample/change.png',
   },
 ];

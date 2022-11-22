@@ -9,49 +9,51 @@ const Leftside = () => {
   const productId = params.id;
 
   const [slideClick, setSlideClick] = useState(false);
-  const [productData, setProductData] = useState([]);
+  const [productData, setProductData] = useState({});
 
   useEffect(() => {
-    fetch('/data/PRODUCT_SAMPLE.json', {
+    fetch(`http://10.58.52.122:3000/products/detail/1`, {
       method: 'GET',
     })
-      .then(res => res.json())
-      .then(data => {
-        setProductData(data[0]);
-      });
-  }, [productId]);
-
+      .then(response => response.json())
+      .then(data => setProductData(data.data[0]));
+  }, []);
+  //productId
   const handleToggle = () => {
     setSlideClick(!slideClick);
   };
+
+  if (!productData?.image_url) return null;
+
   return (
     <div className="left-side">
       <div className="detail-box">
         <div className="detail-img">
-          <img className="detailImg" src="./images/kunwooSample/sample.png" />
+          <img className="detailImg" src={productData.image_url} />
         </div>
         <div className="detail-string">
           <div className="sector-first">
-            <div className="detail-mainString">{productData.productName}</div>
+            <div className="detail-mainString">{productData.product_name}</div>
           </div>
           <div className="sector-second">
-            <div className="detail-secondString">{productData.productSub}</div>
-            <div className="detail-hashtag">{productData.hashTag}</div>
+            <div className="detail-secondString">{productData.description}</div>
+            <div className="detail-hashtag">{productData.tags[0].tags}</div>
+            <div className="detail-hashtag">{productData.tags[1].tags}</div>
             <div className="rating">
               <div className="rating-star">
                 <div className="rating-bg">
                   <div
                     className="rating"
-                    style={{ width: productData.width }}
+                    style={{ width: `${productData.ratings}` }}
                   />
                 </div>
               </div>
-              <span className="review">{productData.review}</span>
+              <span className="review">{productData.reviews}</span>
             </div>
             <div className="sector-third">
               <div className="flex">
                 <label className="third-string">주종:</label>
-                <span className="third-string">{productData.kind}</span>
+                <span className="third-string">{productData.name}</span>
               </div>
               <div className="flex">
                 <label className="third-string">도수:</label>
@@ -59,12 +61,12 @@ const Leftside = () => {
               </div>
               <div className="flex">
                 <label className="third-string">용량:</label>
-                <span className="third-string">{productData.ml}</span>
+                <span className="third-string">{productData.capacity_ml}</span>
               </div>
               <div className="flex">
                 <div className="delivery_string">
                   <label>배송기간:</label>
-                  <span>{productData.delivery}</span>
+                  <span>2일 이내 배송</span>
                 </div>
               </div>
             </div>
@@ -94,18 +96,17 @@ const Leftside = () => {
         </div>
       </div>
       <div className={!slideClick ? 'image-stack' : 'image-stack active'}>
-        <img className="imgStack" src={productData.detail_img1} />
+        <img className="imgStack" src={productData.detail_image} />
 
-        <img className="imgStack" src={productData.detail_img2} />
-        <img className="imgStack" src={productData.detail_img3} />
-        <img className="imgStack" src={productData.detail_img4} />
+        {/* <img className="imgStack" src={productData.detail_img} />
+        <img className="imgStack" src={productData.detail_img} />
+        <img className="imgStack" src={productData.detail_img} /> */}
         <div className="foled-button-down">
           <button className="fold-btn" onClick={handleToggle}>
-            {slideClick ? '상품설명 펼치기' : '상품설명 접기'}
+            {!slideClick ? '상품설명 펼치기' : '상품설명 접기'}
           </button>
         </div>
       </div>
-
       <div className="recommend">
         <div className="recommend-string">
           <label className="main-label">
@@ -115,7 +116,7 @@ const Leftside = () => {
             분명히 이 양조장의 팬이 되실 거에요
           </label>
         </div>
-        <div className="recommend-slide">
+        {/* <div className="recommend-slide">
           <button />
           <div className="recommend-slide-content">
             <div className="slide-next-content"></div>
@@ -123,10 +124,9 @@ const Leftside = () => {
             <div className="slide-content"></div>
           </div>
           <button />
-        </div>
+        </div> */}
       </div>
       <ProductTab />
-
       <Review />
     </div>
   );

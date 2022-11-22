@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Review.scss';
 
 const Review = () => {
-  const [currReviewId, setCurrReviewId] = useState(0);
+  const [currReviewId, setCurrReviewId] = useState([]);
 
   return (
     <div className="Review">
@@ -47,7 +47,7 @@ const reviewData = [
     date: '2022.11.17',
     text1: '가격이 비싸서 고민했는데 갖고 싶던 술이라',
     text2: '큰맘먹고 질렀어요!',
-    src: './images/kunwooSample/gom.jpeg',
+    src: '/images/kunwooSample/gom.jpeg',
   },
   {
     id: 1,
@@ -57,7 +57,7 @@ const reviewData = [
     date: '2022.11.15',
     text1: '이거먹고 취해서 눈떠보니 경찰서 였습니다',
     text2: '정말 맛있었어요!',
-    src: './images/kunwooSample/cat.jpg',
+    src: '/images/kunwooSample/cat.jpg',
   },
   {
     id: 2,
@@ -67,7 +67,7 @@ const reviewData = [
     date: '2022.11.17',
     text1: '술맛이 좋군요!!!!!!!!!!!!!',
     text2: '마음에 듭니다!',
-    src: './images/kunwooSample/goong.png',
+    src: '/images/kunwooSample/goong.png',
   },
   {
     id: 3,
@@ -77,6 +77,6 @@ const reviewData = [
     date: '2022.11.15',
     text1: '먹고싶어서 샀는데 완전 맘에들어서 다시한번',
     text2: '큰맘먹고 질렀어요!',
-    src: './images/kunwooSample/siba.png',
+    src: '/images/kunwooSample/siba.png',
   },
 ];

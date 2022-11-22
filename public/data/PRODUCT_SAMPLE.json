@@ -11,11 +11,11 @@
     "ml": "500ml",
     "delivery": "배송기간 : 월/수/금요일 출고 (2일 이내 배송)",
     "price": "26,000",
-    "detail_img1": "./images/kunwooSample/sampleE.png",
-    "detail_img2": "./images/kunwooSample/smple.png",
-    "detail_img3": "./images/kunwooSample/sssample.png",
-    "detail_img4": "./images/kunwooSample/white.png",
-    "tap_img": "./images/kunwooSample/productInfo.png"
+    "detail_img1": "/images/kunwooSample/sampleE.png",
+    "detail_img2": "/images/kunwooSample/smple.png",
+    "detail_img3": "/images/kunwooSample/sssample.png",
+    "detail_img4": "/images/kunwooSample/white.png",
+    "tap_img": "/images/kunwooSample/productInfo.png"
   },
   {
     "id": 1,
@@ -28,10 +28,10 @@
     "ml": "500ml",
     "delivery": "배송기간 : 월/수/금요일 출고 (2일 이내 배송)",
     "price": "26000",
-    "detail_img1": "./images/kunwooSample/sampleE.png",
-    "detail_img2": "./images/kunwooSample/smple.png",
-    "detail_img3": "./images/kunwooSample/sssample.png",
-    "detail_img4": "./images/kunwooSample/white.png",
-    "tap_img": "./images/kunwooSample/change.png"
+    "detail_img1": "/images/kunwooSample/sampleE.png",
+    "detail_img2": "/images/kunwooSample/smple.png",
+    "detail_img3": "/images/kunwooSample/sssample.png",
+    "detail_img4": "/images/kunwooSample/white.png",
+    "tap_img": "/images/kunwooSample/change.png"
   }
 ]

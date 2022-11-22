@@ -8,7 +8,7 @@ const Leftside = () => {
   const params = useParams();
   const productId = params.id;
 
-  const [handleClick, sethandleClick] = useState('false');
+  const [slideClick, setSlideClick] = useState(false);
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
@@ -18,22 +18,17 @@ const Leftside = () => {
       .then(res => res.json())
       .then(data => {
         setProductData(data[0]);
-        console.log(data);
       });
   }, [productId]);
 
   const handleToggle = () => {
-    sethandleClick(!handleClick);
+    setSlideClick(!slideClick);
   };
   return (
     <div className="left-side">
       <div className="detail-box">
         <div className="detail-img">
-          <img
-            className="detailImg"
-            src="./images/kunwooSample/sample.png"
-            id="img"
-          />
+          <img className="detailImg" src="./images/kunwooSample/sample.png" />
         </div>
         <div className="detail-string">
           <div className="sector-first">
@@ -98,7 +93,7 @@ const Leftside = () => {
           </div>
         </div>
       </div>
-      <div className={handleClick ? 'image-stack' : 'image-stack active'}>
+      <div className={!slideClick ? 'image-stack' : 'image-stack active'}>
         <img className="imgStack" src={productData.detail_img1} />
 
         <img className="imgStack" src={productData.detail_img2} />
@@ -106,7 +101,7 @@ const Leftside = () => {
         <img className="imgStack" src={productData.detail_img4} />
         <div className="foled-button-down">
           <button className="fold-btn" onClick={handleToggle}>
-            {handleClick ? '상품설명 펼치기' : '상품설명 접기'}
+            {slideClick ? '상품설명 펼치기' : '상품설명 접기'}
           </button>
         </div>
       </div>

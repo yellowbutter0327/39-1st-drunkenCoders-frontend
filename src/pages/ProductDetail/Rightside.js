@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Rightside.scss';
 
 const Rightside = () => {
   const [count, setCount] = useState(1);
   const [productPrice, setproductPrice] = useState(productdata[0].price);
+  const naviCart = useNavigate();
+
+  const onClickCart = () => {
+    naviCart(`/cart/id`);
+  };
 
   const minusCount = () => {
     if (count <= 1) {

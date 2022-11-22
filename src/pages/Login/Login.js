@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Login.scss';
 import iconKakao from './../../assets/login/icon_kakao.png';
 import iconNaver from './../../assets/login/icon_naver.png';
 import iconGoogle from './../../assets/login/icon_google.png';
+import './Login.scss';
 
 const Login = () => {
   // const isUserInfoGot = userId.length > 1 && userPassword.length > 1;
 
   return (
-    <div className="container">
+    <div className="login">
       {/* <div className="login-container"> */}
       <h4 className="title-login">로그인</h4>
 

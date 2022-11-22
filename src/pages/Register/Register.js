@@ -38,10 +38,10 @@ const Register = () => {
   };
 
   // // 이메일 검사 : @가 포함될것.
-  // const idValueChecked = userInfo.useremail.includes('@');
+  const idValueChecked = userInfo.useremail.includes('@');
   // // 비밀번호 검사 : 8글자 이상일 것.
-  // const pwValueChecked = userInfo.userpassword.length >= 8 && reg.test(test);
-  // const pwRepeatChecked = userInfo.userpassword === userInfo.userpassword2;
+  const pwValueChecked = userInfo.userpassword.length >= 8 && reg.test(test);
+  const pwRepeatChecked = userInfo.userpassword === userInfo.userpassword2;
 
   //버튼 활성화하기
   // 검사한 모든 로직의 유효성 검사가 true가 될때 getIsActive함수가 작동한다. 버튼 클릭 이벤트가 발생할때 넣어줄 함수.
@@ -49,13 +49,53 @@ const Register = () => {
     idValueChecked && pwValueChecked && pwRepeatChecked && !isDuplicate;
 
   // 유효성 검사 중 하나라도 만족하지못할때 즉, 버튼이 비활성화 될 때 버튼을 클릭하면 아래와 같은 경고창이 뜬다.
-  const handleButtonValid = () => {
+  const handleSignup = () => {
     if (!isButtonActive) {
       alert('please fill in the blanks');
+    } else {
+      fetch('API', {
+        method: 'POST',
+        body: JSON.stringify({
+          Email: userInfo.usernickname,
+          password: userInfo.userpassword,
+          password2: userInfo.userpassword2,
+          nickname: userInfo.usernickname,
+        }),
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.accessToken) {
+            localStorage.setItem('token', data.accessToken);
+            navigate('/main');
+          } else {
+            alert('입력창을 다시 확인해주세요!');
+          }
+        });
     }
   };
 
-  const checkIsDuplicate = () => {};
+  const checkIsDuplicate = () => {
+    fetch('API', {
+      method: 'POST',
+      body: JSON.stringify({
+        nickname: userInfo.usernickname,
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.isDuplicate) {
+          setIsDuplicate(false);
+        } else {
+          alert('이미 존재하는 닉네임입니다!');
+        }
+      });
+  };
 
   return (
     <div className="all-container">
@@ -162,8 +202,8 @@ const Register = () => {
           </div>
 
           <button
-            className={`submit-btn${isButtonActive ? ' registerAction' : ''}`}
-            onClick={handleButtonValid}
+            className={`submit-btn${isButtonActive ? 'registerAction' : ''}`}
+            onClick={handleSignup}
           >
             가입 완료
           </button>

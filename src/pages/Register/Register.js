@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import iconsignup from '../../assets/register/signup.png';
+import iconsignup from '../../assets/Register/signup.png';
 import './Register.scss';
 
 const reg = '^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$';

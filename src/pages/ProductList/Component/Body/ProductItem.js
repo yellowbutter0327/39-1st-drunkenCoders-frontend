@@ -1,34 +1,42 @@
 import React, { useEffect, useState } from 'react';
+// import { useSearchParams } from 'react-router-dom';
 import './ProductItem.scss';
 
 const ProductItem = () => {
-  const [itemList, setItemList] = useState([]);
+  // const [itemList, setItemList] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('/data/ProductItemData.json')
+    fetch(`http://10.58.52.122:3000/products/all`)
+      // ?${searchParams.toString()}
+      // fetch('/data/ProductItemData.json')
       .then(response => response.json())
-      .then(result => setItemList(result));
+      .then(result => setData(result.data));
     // .then(result => console.log(result));
   }, []);
 
   return (
     <>
       {/* 제품 전체 박스 */}
-      {itemList.map(item => (
+      {data.map(item => (
         <div className="product-info-box" key={item.id}>
           <div className="product-info">
             <a href="www.naver.com" className="product-link">
               <div className="image-wrapper">
                 <span className="">
                   <span />
-                  <img className="product-img" src={item.src} alt="drink" />
+                  <img
+                    className="product-img"
+                    src={item.image_url}
+                    alt="drink"
+                  />
                 </span>
               </div>
               {/* 제품 설명 */}
 
               <div className="product-content-box">
                 <div className="product-wrapper">
-                  <div className="product-name">{item.title}</div>
+                  <div className="product-name">{item.name}</div>
                 </div>
                 {/* 가격 정보 */}
                 <div className="product-wrapper">
@@ -55,8 +63,8 @@ const ProductItem = () => {
                 </div>
                 <div className="product-footer">
                   <div className="product-tag-box">
-                    <div className="product-tag">{item.tag[0]}</div>
-                    <div className="product-tag">{item.tag[1]}</div>
+                    <div className="product-tag">{item.tags[0].tags}</div>
+                    <div className="product-tag">{item.tags[1].tags}</div>
                   </div>
                 </div>
               </div>

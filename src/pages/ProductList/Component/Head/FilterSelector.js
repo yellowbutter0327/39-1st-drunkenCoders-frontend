@@ -1,15 +1,12 @@
 import React from 'react';
-import Dropdown from './Dropdown/Dropdown';
 import './FilterSelector.scss';
 
-const FilterSelector = roops => {
+const FilterSelector = () => {
   return (
     <div className="filter-box">
       <div className="filter">
         <div className="filter-wrapper">
-          <div className="filter-item">
-            <Dropdown />
-          </div>
+          <div className="filter-item">드롭박스</div>
         </div>
       </div>
     </div>

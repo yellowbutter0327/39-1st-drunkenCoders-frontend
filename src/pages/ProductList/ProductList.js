@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductItem from './Component/Body/ProductItem';
 import ProductSearch from './Component/Body/ProductSearch';
-import ProductFilter from './Component/Head/ProdectFilter';
+import Dropdown from './Component/Head/Dropdown';
 import ProductMenu from './Component/Head/ProductMenu';
 
 import './ProductList.scss';
@@ -16,15 +16,7 @@ const ProductList = () => {
           </div>
           {/* 필터 */}
           <div className="product-filter-box">
-            <ProductFilter />
-            <ProductFilter />
-            <ProductFilter />
-            <ProductFilter />
-            <ProductFilter />
-            <ProductFilter />
-            <ProductFilter />
-            <ProductFilter />
-            <ProductFilter />
+            <Dropdown />
           </div>
 
           {/* 회색줄 */}

@@ -3,7 +3,7 @@ import DropdownList from './DropdownList';
 import DropdonwItem from './DropdownItem';
 import './Dropdown.scss';
 
-const Dropdown = props => {
+const Dropdown = () => {
   const [isDropdownVisibility, setIsDropdownVisibility] = useState(false);
 
   return (

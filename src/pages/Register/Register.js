@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import iconsignup from '../../assets/Register/signup.png';
 import './Register.scss';
 
@@ -69,7 +70,7 @@ const Register = () => {
         .then(data => {
           if (data.accessToken) {
             localStorage.setItem('token', data.accessToken);
-            navigate('/main');
+            <navigate to="./main" />;
           } else {
             alert('입력창을 다시 확인해주세요!');
           }

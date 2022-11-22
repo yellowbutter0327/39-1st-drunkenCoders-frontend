@@ -16,10 +16,11 @@
     margin: 0px auto;
     padding: 40px 50px 30px;
     background-color: rgb(255, 255, 255);
-    display: block;
     text-align: center;
+
     .form-wrap {
       margin-bottom: 50px;
+
       label {
         color: #767676;
         font-weight: bold;
@@ -27,6 +28,7 @@
         margin-bottom: 20px;
         font-size: 16px;
       }
+
       input {
         border-bottom: 1px solid #707070;
         width: 100%;
@@ -42,19 +44,24 @@
       margin: 7px;
       border-radius: 10px;
       border: 1px solid #b2b2b2;
-      color: #bcbcbc;
+      color: white;
+      background-color: #ffba00;
       font-weight: bold;
       font-size: 18px;
+
       &:disabled {
-        background-color: red;
+        background-color: white;
+        color: #b2b2b2;
       }
     }
+
     .signup {
       text-decoration: underline;
       font-weight: bold;
       font-size: 18px;
       margin-top: 10px;
       margin-bottom: 40px;
+
       a {
         color: #0097f3;
       }
@@ -66,27 +73,30 @@
       width: 80%;
       margin: 0 auto;
       font-size: 15px;
-      justify-content: center;
-      align-content: space-between;
+
       button {
         width: 100%;
         border-radius: 10px;
         margin-bottom: 10px;
         padding: 10px 0;
+
         img {
           margin-right: 5px;
           width: 16px;
           vertical-align: middle;
         }
+
         &.loginButton-kakao {
           background-color: #ffe80f;
           color: #59500e;
           border: none;
         }
+
         &.loginButton-naver {
           background-color: #37c736;
           color: #ffffff;
         }
+
         &.loginButton-google {
           background-color: #ffffff;
           color: #757575;
@@ -97,6 +107,7 @@
 
     .link-find {
       margin-bottom: 20px;
+
       a {
         text-decoration: underline;
         font-weight: bold;

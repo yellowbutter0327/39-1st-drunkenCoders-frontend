@@ -1,12 +1,64 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import iconKakao from './../../assets/login/icon_kakao.png';
 import iconNaver from './../../assets/login/icon_naver.png';
 import iconGoogle from './../../assets/login/icon_google.png';
 import './Login.scss';
 
+const PW_REG_EXP =
+  /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,}$/;
+
 const Login = () => {
-  // const isUserInfoGot = userId.length > 1 && userPassword.length > 1;
+  const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useState({
+    userId: '',
+    userPassword: '',
+  });
+
+  const getUserInfo = e => {
+    // 구조분해할당
+    // const name = e.target.name;
+    // const value = e.target.value;
+    const { name, value } = e.target;
+
+    // 계산된 속성명
+    // spread operator
+    setUserInfo({ ...userInfo, [name]: value });
+  };
+
+  const handleLogin = e => {
+    // form tag의 submit 동작을 방지하기 위해 기본 동작을 막아줌
+    e.preventDefault();
+
+    fetch('http://10.58.52.141:3000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        // id, pw key값 맞춰서 통신하기
+        email: userInfo.userId,
+        password: userInfo.userPassword,
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        // westudy 참고!
+        // 'Content-type' :
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        // 백엔드가 보내주는 메시지를 토대로 분기처리
+        if (data.message === '로그인 성공!') {
+          localStorage.setItem('token', data.access_token);
+          navigate('/main');
+        } else {
+          alert('아이디와 비밀번호를 확인해주세요!');
+        }
+      });
+  };
+
+  // 구조분해할당
+  const { userId, userPassword } = userInfo;
+
+  const isInputValid = userId.includes('@') && PW_REG_EXP.test(userPassword);
 
   return (
     <div className="login">
@@ -14,11 +66,11 @@ const Login = () => {
       <h4 className="title-login">로그인</h4>
 
       <div className="login-form">
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="form-wrap">
             <label htmlFor="input-email">이메일</label>
             <input
-              // onChange={getUserInfo}
+              onChange={getUserInfo}
               id="input-email"
               name="userId"
               type="text"
@@ -29,7 +81,7 @@ const Login = () => {
           <div className="form-wrap">
             <label htmlFor="input-password">비밀번호</label>
             <input
-              // onChange={getUserInfo}
+              onChange={getUserInfo}
               id="input-password"
               name="userPassword"
               type="text"
@@ -37,7 +89,7 @@ const Login = () => {
             />
           </div>
 
-          <button className="login-button" type="submit">
+          <button className="login-button" disabled={!isInputValid}>
             로그인
           </button>
         </form>

@@ -37,11 +37,11 @@ const Register = () => {
     setIsValid({ ...isValid, [name]: rules[name](value, userInfo.password) });
   };
 
-  // 이메일 검사 : @가 포함될것.
-  const idValueChecked = userInfo.useremail.includes('@');
-  // 비밀번호 검사 : 8글자 이상일 것.
-  const pwValueChecked = userInfo.userpassword.length >= 8 && reg.test(test);
-  const pwRepeatChecked = userInfo.userpassword === userInfo.userpassword2;
+  // // 이메일 검사 : @가 포함될것.
+  // const idValueChecked = userInfo.useremail.includes('@');
+  // // 비밀번호 검사 : 8글자 이상일 것.
+  // const pwValueChecked = userInfo.userpassword.length >= 8 && reg.test(test);
+  // const pwRepeatChecked = userInfo.userpassword === userInfo.userpassword2;
 
   //버튼 활성화하기
   // 검사한 모든 로직의 유효성 검사가 true가 될때 getIsActive함수가 작동한다. 버튼 클릭 이벤트가 발생할때 넣어줄 함수.

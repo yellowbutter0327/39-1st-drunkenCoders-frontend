@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import iconsignup from '../../assets/Register/signup.png';
 import './Register.scss';
 
-const reg = '^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$';
-
+const reg =
+  /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
 const rules = {
-  useremail: email => email.includes('@'),
-  userpassword: password => password.length >= 8 && password.test(reg),
+  useremail: email => email.includes('@' && '.'),
+  userpassword: password => password.length >= 8 && reg.test(password),
   userpassword2: (password2, password) => password2 === password,
 };
 
@@ -30,18 +30,24 @@ const Register = () => {
     usernickname: true,
   });
 
+  const navigate = useNavigate();
+
   const getUserInfo = e => {
     const { name, value } = e.target;
     // 1. spread operator로 기존 내용을 복사
     // 2. 계산된 속성명으로 수정되는 값 업데이트
     setUserInfo({ ...userInfo, [name]: value });
-    setIsValid({ ...isValid, [name]: rules[name](value, userInfo.password) });
+    setIsValid({
+      ...isValid,
+      [name]: rules[name](value, userInfo.userpassword),
+    });
   };
 
   // // 이메일 검사 : @가 포함될것.
   const idValueChecked = userInfo.useremail.includes('@');
   // // 비밀번호 검사 : 8글자 이상일 것.
-  const pwValueChecked = userInfo.userpassword.length >= 8 && reg.test(test);
+  const pwValueChecked =
+    userInfo.userpassword.length >= 8 && reg.test(userInfo.userpassword);
   const pwRepeatChecked = userInfo.userpassword === userInfo.userpassword2;
 
   //버튼 활성화하기
@@ -70,7 +76,7 @@ const Register = () => {
         .then(data => {
           if (data.accessToken) {
             localStorage.setItem('token', data.accessToken);
-            <navigate to="./main" />;
+            navigate('/');
           } else {
             alert('입력창을 다시 확인해주세요!');
           }
@@ -79,21 +85,21 @@ const Register = () => {
   };
 
   const checkIsDuplicate = () => {
-    fetch('API', {
+    fetch('http://10.58.52.141:3000/users/checknick', {
       method: 'POST',
-      body: JSON.stringify({
-        nickname: userInfo.usernickname,
-      }),
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
+      body: JSON.stringify({
+        nickname: userInfo.usernickname,
+      }),
     })
       .then(res => res.json())
       .then(data => {
-        if (!data.isDuplicate) {
-          setIsDuplicate(false);
+        if (data.status === 200) {
+          console.log('1111!');
         } else {
-          alert('이미 존재하는 닉네임입니다!');
+          console.log('이미 존재하는 닉네임입니다!');
         }
       });
   };

@@ -15,6 +15,8 @@ const ProductDetail = () => {
       .then(response => response.json())
       .then(data => setProductData(data.data[0]));
   }, []);
+
+  if (Object.keys(productData).length === 0) return null;
   return (
     <>
       <div className="container">

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import './Review.scss';
 
-const Review = () => {
+const Review = ({ productData }) => {
+  const { productId } = useParams();
   const [currReviewId, setCurrReviewId] = useState([]);
 
   useEffect(() => {
-    fetch(`http://10.58.52.122:3000/comments/1`, {
+    fetch(`http://10.58.52.122:3000/comments/${productId}`, {
       method: 'GET',
     })
       .then(response => response.json())

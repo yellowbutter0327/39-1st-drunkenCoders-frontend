@@ -9,7 +9,7 @@ const Rightside = ({ productData }) => {
 
   const onClickCart = () => {
     //장바구니 담는 로직(fetch)
-    fetch(`http://10.58.52.128:3000/carts`, {
+    fetch('http://10.58.52.128:3000/carts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

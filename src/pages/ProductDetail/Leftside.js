@@ -11,7 +11,7 @@ const Leftside = ({ productData }) => {
     setSlideClick(!slideClick);
   };
 
-  if (!productData?.image_url) return null;
+  // if (!productData?.image_url) return null;
 
   return (
     <div className="left-side">
@@ -32,7 +32,7 @@ const Leftside = ({ productData }) => {
                 <div className="rating-bg">
                   <div
                     className="rating"
-                    style={{ width: `${productData.ratings}` }}
+                    style={{ width: `${productData.ratings}%` }}
                   />
                 </div>
               </div>

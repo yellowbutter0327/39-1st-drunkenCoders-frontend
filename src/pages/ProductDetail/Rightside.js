@@ -16,24 +16,25 @@ const Rightside = () => {
       .then(data => setProductData(data.data[0]));
   }, []);
   const onClickCart = () => {
-    // 장바구니 담는 로직(fetch)
-    // fetch('API', {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //   })
-    // })
-    //   .then()
-    //   .then(data => {
-    //     if (data.message === 'SUCCESS') {
-    //       if (
-    //         window.confirm(
-    //           '장바구니에 담았습니다. 장바구니로 이동하시겠습니까?'
-    //         )
-    //       ) {
-    //         naviCart('/cart');
-    //       }
-    //     }
-    //   });
+    //장바구니 담는 로직(fetch)
+    fetch('API', {
+      method: 'POST',
+      body: JSON.stringify({
+        //이름 , 개수 , 가격
+      }),
+    })
+      .then()
+      .then(data => {
+        if (data.message === 'SUCCESS') {
+          if (
+            window.confirm(
+              '장바구니에 담았습니다. 장바구니로 이동하시겠습니까?'
+            )
+          ) {
+            naviCart('/cart');
+          }
+        }
+      });
   };
   const totalPrice = productData.price * count;
   const minusCount = () => {

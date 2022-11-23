@@ -107,25 +107,7 @@ const Leftside = () => {
           </button>
         </div>
       </div>
-      <div className="recommend">
-        <div className="recommend-string">
-          <label className="main-label">
-            이 양조장의 다른 제품도 구경해보세요
-          </label>
-          <label className="sub-label">
-            분명히 이 양조장의 팬이 되실 거에요
-          </label>
-        </div>
-        {/* <div className="recommend-slide">
-          <button />
-          <div className="recommend-slide-content">
-            <div className="slide-next-content"></div>
-            <div className="slide-next-content"></div>
-            <div className="slide-content"></div>
-          </div>
-          <button />
-        </div> */}
-      </div>
+
       <ProductTab />
       <Review />
     </div>

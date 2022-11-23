@@ -6,9 +6,7 @@ const Banner = () => {
   const [transition, setTransition] = useState('0.2s');
 
   const newArray = arr => {
-    const startData = arr[0];
-    const endData = arr[arr.length - 1];
-    const modifiedArray = [endData, ...arr, startData];
+    const modifiedArray = [arr[arr.length - 1], ...arr, arr[0]];
     return modifiedArray;
   };
 

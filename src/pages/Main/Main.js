@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from './../Main/component/Banner/Banner';
 import Review from './../Main/component/Review/Review';
+import LinkList from './component/LinkList/LinkList';
+import Timer from './../Main/component/Timer/Timer';
 import iconPick from './../../assets/Main/icon_pick.png';
 import iconClock from './../../assets/Main/icon_clock.png';
 import iconOmija from './../../assets/Main/icon_omija.png';
@@ -16,32 +18,7 @@ const Main = () => {
       <div className="main-wrap">
         <Banner />
 
-        <div className="main-link-area">
-          <Link to="/productList" className="icon1">
-            <span>탁주</span>
-          </Link>
-          <Link to="/productList" className="icon2">
-            <span>약·청주</span>
-          </Link>
-          <Link to="/productList" className="icon3">
-            <span>과실주</span>
-          </Link>
-          <Link to="/productList" className="icon4">
-            <span>증류주</span>
-          </Link>
-          <Link to="/productList" className="icon5">
-            <span>선물세트</span>
-          </Link>
-          <Link to="/productList" className="icon6">
-            <span>ONLY 술담화</span>
-          </Link>
-          <Link to="/productList" className="icon7">
-            <span>이벤트</span>
-          </Link>
-          <Link to="/productList" className="icon8">
-            <span>기업구매</span>
-          </Link>
-        </div>
+        <LinkList />
 
         <div className="main-section">
           <div className="section-tit">
@@ -66,10 +43,7 @@ const Main = () => {
             </div>
             <h3 className="tit">
               <strong>릴레이 특가</strong>
-              <div className="time">
-                <span>45 : 45 : 45</span>
-                <span className="sub-txt">남았어요</span>
-              </div>
+              <Timer hh="40" mm="40" ss="25" />
             </h3>
           </div>
           <Link to="/productDetail" className="main-banner">

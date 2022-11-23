@@ -29,14 +29,14 @@ const Review = () => {
           );
         })}
       </div>
-      <div className="slide-btn">
+      {/* <div className="slide-btn">
         <button type="button" className="btn-prev">
           prev
         </button>
         <button type="button" className="btn-next">
           next
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

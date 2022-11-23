@@ -4,10 +4,10 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartItemList, setCartItemList] = useState([]);
-
+  //`http://10.58.52.205:3000/carts/1`
   useEffect(() => {
     // mock data fetch
-    fetch('/data/cartData.json', {
+    fetch('data/cartData.json', {
       method: 'GET',
     })
       .then(res => res.json())

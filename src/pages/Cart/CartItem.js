@@ -22,10 +22,10 @@ const CartItem = ({ itemInfo, cartItemList, setCartItemList, deleteItem }) => {
   const subAmount = () => {
     // 처음 fetch 받아온 리스트에서 수량을 수정
     const changedCartList = cartItemList.map(item => {
-      if (productId === item.productId && item.amount > 0) {
+      if (productId === item.productId && item.amount > 1) {
         item.amount = amount - 1;
       } else if (productId === item.productId) {
-        item.amount = 0;
+        item.amount = 1;
       }
 
       return item;

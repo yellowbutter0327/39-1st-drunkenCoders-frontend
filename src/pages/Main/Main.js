@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from './../Main/component/Banner/Banner';
 import Review from './../Main/component/Review/Review';
-import iconPick from './../../assets/main/icon_pick.png';
-import iconClock from './../../assets/main/icon_clock.png';
-import iconOmija from './../../assets/main/icon_omija.png';
-import iconBox from './../../assets/main/icon_box.png';
-import iconSpeaker from './../../assets/main/icon_speaker.png';
-import iconStar from './../../assets/main/icon_star.png';
+import iconPick from './../../assets/Main/icon_pick.png';
+import iconClock from './../../assets/Main/icon_clock.png';
+import iconOmija from './../../assets/Main/icon_omija.png';
+import iconBox from './../../assets/Main/icon_box.png';
+import iconSpeaker from './../../assets/Main/icon_speaker.png';
+import iconStar from './../../assets/Main/icon_star.png';
 import './Main.scss';
 
 const Main = () => {

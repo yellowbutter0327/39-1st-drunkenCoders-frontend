@@ -14,11 +14,11 @@
         margin: 20px auto 0;
         width: 100px;
         height: 20px;
-        background: url(/assets/main/icon_star_score_bg.png) no-repeat;
+        background: url(/assets/Main/icon_star_score_bg.png) no-repeat;
         background-size: 100px 20px;
         .rating {
           height: 20px;
-          background: url(/assets/main/icon_star_score.png) no-repeat;
+          background: url(/assets/Main/icon_star_score.png) no-repeat;
           background-size: 100px 20px;
         }
       }
@@ -70,19 +70,19 @@
       z-index: 1;
       &.btn-prev {
         left: 0;
-        background: url(/assets/main/icon_prev_on.png) no-repeat;
+        background: url(/assets/Main/icon_prev_on.png) no-repeat;
         background-size: 50px;
         &:disabled {
-          background: url(/assets/main/icon_prev_off.png) no-repeat;
+          background: url(/assets/Main/icon_prev_off.png) no-repeat;
           background-size: 50px;
         }
       }
       &.btn-next {
         right: 0;
-        background: url(/assets/main/icon_next_on.png) no-repeat;
+        background: url(/assets/Main/icon_next_on.png) no-repeat;
         background-size: 50px;
         &:disabled {
-          background: url(/assets/main/icon_next_off.png) no-repeat;
+          background: url(/assets/Main/icon_next_off.png) no-repeat;
           background-size: 50px;
         }
       }

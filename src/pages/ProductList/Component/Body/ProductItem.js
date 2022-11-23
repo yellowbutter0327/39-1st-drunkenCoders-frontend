@@ -32,7 +32,7 @@ const ProductItem = ({ data }) => {
                     <p className="origin-price" />
                     <div className="discount-price-wrapper">
                       <p className="discount-price">
-                        13,000
+                        {item.price}
                         <span>원</span>
                       </p>
                     </div>
@@ -44,9 +44,9 @@ const ProductItem = ({ data }) => {
                       src="/images/black-star.png"
                       alt="star"
                     />
-                    <p className="rated-score">0</p>
+                    <p className="rated-score">{item.ratings}</p>
                     <div className="column-line" />
-                    <p className="review-number">리뷰 0</p>
+                    <p className="review-number">{item.reviews}</p>
                   </div>
                 </div>
                 <div className="product-footer">

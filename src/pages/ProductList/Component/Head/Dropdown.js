@@ -7,13 +7,18 @@ const Dropdown = () => {
 
   const filterParams = id => {
     searchParams.set('cate_id', id);
+    searchParams.set('sweetness', id);
+    searchParams.set('sourness', id);
+    searchParams.set('carbon', id);
+    searchParams.set('fruits', id);
+    searchParams.set('flowers', id);
+    searchParams.set('grains', id);
     setSearchParams(searchParams);
   };
-
   return (
     <ul>
       {filterList.map(filterItem => (
-        <li key={filterItem.id}>
+        <button key={filterItem.id}>
           {filterItem.title}
           {filterItem.type.map(type => (
             <button key={type.id} onClick={() => filterParams(type.id)}>
@@ -22,13 +27,62 @@ const Dropdown = () => {
               <br />
             </button>
           ))}
-        </li>
+        </button>
       ))}
     </ul>
   );
 };
 
 export default Dropdown;
+
+// const juzong = [
+//   {
+//     id: 0,
+//     name: '탁주',
+//   },
+//   {
+//     id: 1,
+//     name: '발효주',
+//   },
+//   {
+//     id: 2,
+//     name: '청주',
+//   },
+//   {
+//     id: 3,
+//     name: '증류주',
+//   },
+// ];
+
+// const danmat = [
+//   {
+//     id: 0,
+//     name: '달',
+//   },
+//   {
+//     id: 1,
+//     name: '달달',
+//   },
+//   {
+//     id: 2,
+//     name: '달달달',
+//   },
+// ];
+
+// const sinmat = [
+//   {
+//     id: 0,
+//     name: '신',
+//   },
+//   {
+//     id: 1,
+//     name: '신신',
+//   },
+//   {
+//     id: 2,
+//     name: '신신신',
+//   },
+// ];
 
 const filterList = [
   {
@@ -43,109 +97,62 @@ const filterList = [
   },
   {
     id: 1,
-    title: '도수',
-    type: ['10%', '20%', '30%'],
+    title: '단맛',
+    type: [
+      { id: 1, option: '약' },
+      { id: 2, option: '중' },
+      { id: 3, option: '강' },
+    ],
   },
   {
     id: 2,
-    title: '단맛',
-    type: ['1', '2', '3'],
+    title: '신맛',
+    type: [
+      { id: 1, option: '약' },
+      { id: 2, option: '중' },
+      { id: 3, option: '강' },
+    ],
+  },
+  {
+    id: 3,
+    title: '탄산',
+    type: [
+      { id: 1, option: '약' },
+      { id: 2, option: '중' },
+      { id: 3, option: '강' },
+    ],
+  },
+  {
+    id: 4,
+    title: '과일',
+    type: [
+      { id: 1, option: '포도' },
+      { id: 2, option: '배' },
+      { id: 3, option: '매실' },
+      { id: 4, option: '사과' },
+      { id: 5, option: '베리' },
+    ],
+  },
+  {
+    id: 5,
+    title: '꽃',
+    type: [
+      { id: 1, option: '국화' },
+      { id: 2, option: '유채' },
+      { id: 3, option: '동백꽃' },
+      { id: 4, option: '매화' },
+      { id: 5, option: '진달래' },
+    ],
+  },
+  {
+    id: 6,
+    title: '곡물',
+    type: [
+      { id: 1, option: '땅콩' },
+      { id: 2, option: '밤' },
+      { id: 3, option: '사탕수수' },
+      { id: 4, option: '고구마' },
+      { id: 5, option: '보리' },
+    ],
   },
 ];
-
-// ------------------------------------------------
-
-// import React, { useEffect, useState } from 'react';
-// import { useSearchParams } from 'react-router-dom';
-// import './Dropdown.scss';
-
-// const Dropdown = () => {
-//   // const location = useLocation();
-
-//   // const url = location.search;
-
-//   // const [currDropdown, setCurrDropdown] = useState('');
-
-//   const [searchParams, setSearchParams] = useSearchParams();
-
-//   const filterListParams = () => {
-//     searchParams.append('sort');
-//     setSearchParams(searchParams);
-//   };
-
-//   // const offset = searchParams.get('offset');
-//   // const limit = searchParams.get('limit');
-
-//   const [isData, setIsData] = useState([]);
-
-//   // const listId = searchParams.get('id');
-
-//   // 1. filter 클릭 시 이미 존재하는 값이면 제거, 없으면 추가 (.set)
-//   // 2. useEffect에서 searchParams가 변할 때마다(의존성 배열) fetch 요청(searchParams를 토대로)
-
-//   useEffect(() => {
-//     // fetch(`/products?${searchParams.toString()}`)
-//     // fetch(`/filters}`)
-//     // fetch(`http://10.58.52.122:3000//products/all?${searchParams.toString()}`)
-
-//     fetch(`http://10.58.52.122:3000/products/all?${searchParams.toString()}`, {
-//       method: 'GET',
-//     })
-//       // ?${searchParams.toString()}
-//       // fetch('/data/ProductItemData.json')
-//       .then(response => response.json())
-//       .then(result => setIsData(result.data));
-//   }, []);
-//   if (isData.length === 0) return;
-
-//   // 예전 코드
-//   // const handleDropdown = () => {
-//   //   if (isData.id === isData) {
-//   //     setIsData('');
-//   //   } else {
-//   //     setIsData(isData.id);
-//   //   }
-//   // };
-
-//   return (
-//     <div>
-//       <div>
-//         {filterList.map(filter => (
-//           <ul
-//             key={filter.id}
-//             className="drop-btn"
-//             // onClick={() => handleDropdown(isData.id)}
-//           >
-//             {filter.title}
-//             {isData === filter.id ? '<' : '>'}
-//             <li>
-//               {' '}
-//               {filter.title}
-//               <button onClick={filterListParams}>aaa</button>
-//             </li>
-//           </ul>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Dropdown;
-
-// const filterList = [
-//   {
-//     id: 0,
-//     title: '주종',
-//     type: ['탁주', '과실주', '증류주'],
-//   },
-//   {
-//     id: 1,
-//     title: '도수',
-//     type: ['10%', '20%', '30%'],
-//   },
-//   {
-//     id: 2,
-//     title: '단맛',
-//     type: ['1', '2', '3'],
-//   },
-// ];

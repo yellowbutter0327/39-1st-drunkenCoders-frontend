@@ -85,7 +85,7 @@ const Login = () => {
               onChange={getUserInfo}
               id="input-password"
               name="userPassword"
-              type="text"
+              type="password"
               placeholder="비밀번호를 입력해주세요"
             />
           </div>

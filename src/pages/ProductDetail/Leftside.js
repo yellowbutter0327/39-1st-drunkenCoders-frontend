@@ -4,21 +4,9 @@ import ProductTab from './ProductTab';
 import Review from './Review';
 import './Leftside.scss';
 
-const Leftside = () => {
-  const params = useParams();
-  const productId = params.id;
-
+const Leftside = ({ productData }) => {
   const [slideClick, setSlideClick] = useState(false);
-  const [productData, setProductData] = useState({});
 
-  useEffect(() => {
-    fetch(`http://10.58.52.122:3000/products/detail/1`, {
-      method: 'GET',
-    })
-      .then(response => response.json())
-      .then(data => setProductData(data.data[0]));
-  }, []);
-  //productId
   const handleToggle = () => {
     setSlideClick(!slideClick);
   };
@@ -76,7 +64,7 @@ const Leftside = () => {
               </div>
               <div className="flex-discount">
                 <div className="discountBox">
-                  <span>{productData.price}원</span>
+                  <span>{productData.price?.toLocaleString()}원</span>
                 </div>
               </div>
               <div className="fourth-div">

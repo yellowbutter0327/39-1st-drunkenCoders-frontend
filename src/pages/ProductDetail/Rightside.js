@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './Rightside.scss';
 
-const Rightside = () => {
-  // const {productId} = useParams();
+const Rightside = ({ productData }) => {
+  const { productId } = useParams();
   const [count, setCount] = useState(1);
-  const [productPrice, setproductPrice] = useState(productdata[0].price);
   const naviCart = useNavigate();
-  const [productData, setProductData] = useState({});
-  useEffect(() => {
-    fetch(`http://10.58.52.122:3000/products/detail/1`, {
-      method: 'GET',
-    })
-      .then(response => response.json())
-      .then(data => setProductData(data.data[0]));
-  }, []);
+
   const onClickCart = () => {
     //장바구니 담는 로직(fetch)
-    fetch('API', {
+    fetch(`http://10.58.52.128:3000/carts`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
       body: JSON.stringify({
         //이름 , 개수 , 가격
+        product_id: productId,
+        quantity: count,
       }),
     })
-      .then()
+      .then(response => response.json())
       .then(data => {
         if (data.message === 'SUCCESS') {
           if (
@@ -33,9 +31,12 @@ const Rightside = () => {
           ) {
             naviCart('/cart');
           }
+        } else {
+          alert('전송실패');
         }
       });
   };
+
   const totalPrice = productData.price * count;
   const minusCount = () => {
     if (count <= 1) {
@@ -85,7 +86,7 @@ const Rightside = () => {
           <label>총 상품가격</label>
         </div>
         <div className="select-wrapper">
-          <span>{totalPrice}원</span>
+          <span>{totalPrice?.toLocaleString()}원</span>
         </div>
         <div className="delivery">
           <div className="delivery-icon">

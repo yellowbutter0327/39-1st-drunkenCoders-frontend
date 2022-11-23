@@ -4,15 +4,25 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartItemList, setCartItemList] = useState([]);
-  //`http://10.58.52.205:3000/carts/1`
+
+  // const setPaymentItem = () => {
+  //   const paymentItem = cartItemList.filter(obj => {
+  //     return obj.isCheck === true;
+  //   });
+  //   localStorage.setItem('orderList', JSON.stringify(paymentItem));
+  //   return paymentItem;
+  // };
   useEffect(() => {
     // mock data fetch
-    fetch('data/cartData.json', {
+    fetch(`http://10.58.52.128:3000/carts/1`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setCartItemList(data);
+        const cartList = data.data.map(item => {
+          return { ...item, isCheck: true };
+        });
+        setCartItemList(cartList);
       });
   }, []);
 
@@ -20,9 +30,11 @@ const Cart = () => {
   const calTotalAmount = arr => {
     if (arr) {
       let totalAmount = 0;
-      for (let i = 0; i < arr.length; i++) {
-        totalAmount = totalAmount + arr[i].amount;
-      }
+      arr.forEach(obj => {
+        if (obj.isCheck) {
+          totalAmount += obj.quantity;
+        }
+      });
       return totalAmount;
     }
   };
@@ -31,10 +43,11 @@ const Cart = () => {
   const calTotalPrice = arr => {
     if (arr) {
       let priceTotal = 0;
-      for (let i = 0; i < arr.length; i++) {
-        const price = arr[i].amount * arr[i].productPrice;
-        priceTotal = priceTotal + price;
-      }
+      arr.forEach(obj => {
+        if (obj.isCheck) {
+          priceTotal += obj.quantity * obj.price;
+        }
+      });
       return priceTotal;
     }
   };
@@ -53,10 +66,36 @@ const Cart = () => {
               key={index}
               setCartItemList={setCartItemList}
               cartItemList={cartItemList}
+              index={index}
               deleteItem={function deleteComment() {
-                const deletedItem = [...cartItemList];
-                deletedItem.splice(index, 1);
-                setCartItemList(deletedItem);
+                //   const deletedItem = [...cartItemList];
+                //   deletedItem.splice(index, 1);
+                //   setCartItemList(deletedItem);
+                // }}
+                //백앤드 연결시 아래코드로 대체
+                fetch(`http://10.58.52.128:3000/carts/1`, {
+                  method: 'DELETE',
+                  headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                    authorization: localStorage.getItem('TOKEN'),
+                  },
+                  body: JSON.stringify({
+                    id: [obj.id],
+                  }),
+                })
+                  .then(response => {
+                    if (response.status !== 204) {
+                      throw new Error('error');
+                    } else {
+                      //fetch 성공시
+                      const deletedItem = [...cartItemList];
+                      deletedItem.splice(index, 1);
+                      setCartItemList(deletedItem);
+                    }
+                  })
+                  .catch(error => {
+                    alert('장바구니 삭제에 실패하였습니다.');
+                  });
               }}
             />
           ))}
@@ -68,7 +107,7 @@ const Cart = () => {
             <div className="content">
               <div className="row">
                 <div>총 상품금액</div>
-                <div className="price">{totalPrice.toLocaleString()}원</div>
+                <div className="price">{totalPrice?.toLocaleString()}원</div>
               </div>
               <div className="row">
                 <div>총 즉시할인금액</div>
@@ -90,7 +129,7 @@ const Cart = () => {
             <div className="solid-bottom"></div>
             <div className="footer">
               <div>총 결제 예상 금액</div>
-              <span className="Fprice">{totalPrice}원</span>
+              <span className="Fprice">{totalPrice?.toLocaleString()}원</span>
             </div>
           </div>
           <div className="action-button-wrapper">

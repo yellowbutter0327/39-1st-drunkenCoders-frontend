@@ -2,17 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CartItem = ({ itemInfo, cartItemList, setCartItemList, deleteItem }) => {
-  const { productId, productName, productPrice, img, sub, basketId, amount } =
-    itemInfo;
+  const { product_id, name, price, detail_image, sub, id, quantity } = itemInfo;
 
-  const totalPrice = productPrice * amount;
+  const totalPrice = price * quantity;
 
   // 수량 제어 버튼
   const plusAmount = () => {
     // 처음 fetch 받아온 리스트에서 수량을 수정
     const changedCartList = cartItemList.map(item => {
-      if (productId === item.productId) {
-        item.amount = amount + 1;
+      if (product_id === item.product_id) {
+        item.quantity = quantity + 1;
       }
       return item;
     });
@@ -22,10 +21,10 @@ const CartItem = ({ itemInfo, cartItemList, setCartItemList, deleteItem }) => {
   const subAmount = () => {
     // 처음 fetch 받아온 리스트에서 수량을 수정
     const changedCartList = cartItemList.map(item => {
-      if (productId === item.productId && item.amount > 1) {
-        item.amount = amount - 1;
-      } else if (productId === item.productId) {
-        item.amount = 1;
+      if (product_id === item.product_id && item.quantity > 1) {
+        item.quantity = quantity - 1;
+      } else if (product_id === item.product_id) {
+        item.quantity = 1;
       }
 
       return item;
@@ -50,9 +49,9 @@ const CartItem = ({ itemInfo, cartItemList, setCartItemList, deleteItem }) => {
             </div>
             <div className="product-info-top">
               <div className="thumbnail">
-                <img className="thumbnail-img" src={img} />
+                <img className="thumbnail-img" src={detail_image} />
               </div>
-              <div className="product-name">{productName}</div>
+              <div className="product-name">{name}</div>
               <button
                 onClick={deleteItem}
                 type="button"
@@ -77,7 +76,7 @@ const CartItem = ({ itemInfo, cartItemList, setCartItemList, deleteItem }) => {
                   </button>
                 </div>
                 <div className="amount">
-                  <span className="amount-number">{amount}</span>
+                  <span className="amount-number">{quantity}</span>
                 </div>
                 <div className="common-increase">
                   <button type="button">
@@ -91,7 +90,7 @@ const CartItem = ({ itemInfo, cartItemList, setCartItemList, deleteItem }) => {
               </div>
               <div className="price">
                 <div className="discount">
-                  <span>{productPrice}원</span>
+                  <span>{price?.toLocaleString()}원</span>
                 </div>
               </div>
             </div>
@@ -102,7 +101,7 @@ const CartItem = ({ itemInfo, cartItemList, setCartItemList, deleteItem }) => {
       <div className="footer">
         <div className="product-price">
           <div className="price-title">상품금액</div>
-          <div className="price">{totalPrice.toLocaleString()}원</div>
+          <div className="price">{totalPrice?.toLocaleString()}원</div>
         </div>
         <div className="discount-price">
           <div className="price-title">즉시할인금액</div>
@@ -114,7 +113,7 @@ const CartItem = ({ itemInfo, cartItemList, setCartItemList, deleteItem }) => {
         </div>
         <div className="total-price">
           <div className="total-title">총 금액</div>
-          <div className="totalPrice">{totalPrice.toLocaleString()}원</div>
+          <div className="totalPrice">{totalPrice?.toLocaleString()}원</div>
         </div>
       </div>
     </div>

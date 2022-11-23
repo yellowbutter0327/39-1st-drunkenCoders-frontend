@@ -20,15 +20,14 @@ const Register = () => {
     userpassword2: '',
     usernickname: '',
   });
-
   const [isDuplicate, setIsDuplicate] = useState(true);
-
   const [isValid, setIsValid] = useState({
     useremail: true,
     userpassword: true,
     userpassword2: true,
     usernickname: true,
   });
+  const [isNicknameChecked, setIsNicknameChecked] = useState(false);
 
   const navigate = useNavigate();
 
@@ -44,7 +43,7 @@ const Register = () => {
   };
 
   // // 이메일 검사 : @가 포함될것.
-  const idValueChecked = userInfo.useremail.includes('@');
+  const idValueChecked = userInfo.useremail.includes('@' && '.');
   // // 비밀번호 검사 : 8글자 이상일 것.
   const pwValueChecked =
     userInfo.userpassword.length >= 8 && reg.test(userInfo.userpassword);
@@ -57,34 +56,36 @@ const Register = () => {
 
   // 유효성 검사 중 하나라도 만족하지못할때 즉, 버튼이 비활성화 될 때 버튼을 클릭하면 아래와 같은 경고창이 뜬다.
   const handleSignup = () => {
-    if (!isButtonActive) {
-      alert('please fill in the blanks');
-    } else {
-      fetch('API', {
-        method: 'POST',
-        body: JSON.stringify({
-          Email: userInfo.usernickname,
-          password: userInfo.userpassword,
-          password2: userInfo.userpassword2,
-          nickname: userInfo.usernickname,
-        }),
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8',
-        },
-      })
-        .then(res => res.json())
-        .then(data => {
-          if (data.accessToken) {
-            localStorage.setItem('token', data.accessToken);
-            navigate('/');
-          } else {
-            alert('입력창을 다시 확인해주세요!');
-          }
-        });
-    }
+    fetch('http://10.58.52.141:3000/users/register', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: userInfo.useremail,
+        password: userInfo.userpassword,
+        nickname: userInfo.usernickname,
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.message === 'user create') {
+          alert('회원가입이 완료되었습니다.');
+          navigate('/login');
+        } else if (data.message === 'duplicated email') {
+          alert('이미 가입된 이메일입니다.');
+        } else {
+          alert('다시 시도해주세요!');
+        }
+      });
   };
 
   const checkIsDuplicate = () => {
+    if (!userInfo.usernickname) {
+      alert('닉네임을 입력해주세요!');
+      return;
+    }
+
     fetch('http://10.58.52.141:3000/users/checknick', {
       method: 'POST',
       headers: {
@@ -96,13 +97,27 @@ const Register = () => {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.status === 200) {
-          console.log('1111!');
+        if (data.message === 'Available nickname') {
+          alert('사용 가능한 닉네임입니다.');
+          setIsDuplicate(false);
         } else {
-          console.log('이미 존재하는 닉네임입니다!');
+          alert('이미 존재하는 닉네임입니다.');
+          setIsNicknameChecked(true);
+          setIsDuplicate(true);
         }
       });
   };
+
+  // 기본적인 input 값들
+  // 1. input 받는 값을 state로 처리
+  // 2. state를 토대로 validate
+  // 3. 조건부로 스타일링
+
+  // 닉네임 체크
+  // 1. input 받는 값을 state로 처리
+  // 2. 해당 값이 사용할 수 있는 값인지 통신하여 확인
+  // 3. 올바른지 아닌지 state로 처리
+  // 2. state를 토대로 조건부로 스타일링
 
   return (
     <div className="all-container">
@@ -151,7 +166,7 @@ const Register = () => {
               <label htmlFor="nickname">닉네임</label>
               <input
                 onChange={getUserInfo}
-                className={'nickname' && 'error'}
+                className={isNicknameChecked && isDuplicate ? 'error' : ''}
                 name="usernickname"
                 type="text"
                 placeholder="닉네임"
@@ -159,7 +174,11 @@ const Register = () => {
               <button className="check-repeat" onClick={checkIsDuplicate}>
                 중복확인
               </button>
-              <p className="alert-txt">닉네임이 중복되었습니다.</p>
+              {/* 조건 ? 트루일때 : false일때
+              조건 && 트루일때 */}
+              {isNicknameChecked && isDuplicate && (
+                <p className="alert-txt">닉네임이 중복되었습니다.</p>
+              )}
             </div>
 
             <p className="alert-name">
@@ -209,8 +228,9 @@ const Register = () => {
           </div>
 
           <button
-            className={`submit-btn${isButtonActive ? 'registerAction' : ''}`}
+            className="submit-btn"
             onClick={handleSignup}
+            disabled={!isButtonActive}
           >
             가입 완료
           </button>

@@ -1,12 +1,12 @@
 import React from 'react';
 import './ProductSearch.scss';
 
-const ProductSearch = roops => {
+const ProductSearch = ({ total }) => {
   return (
     <div className="search-box">
       <div className="product-stats-box">
         <div className="search-result">
-          <div className="result-number">111</div>
+          <div className="result-number">{total}</div>
           <div>건의 결과가 있어요</div>
         </div>
         <div className="filter-wrapper">

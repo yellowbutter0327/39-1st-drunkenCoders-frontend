@@ -1,20 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 // import { useSearchParams } from 'react-router-dom';
 import './ProductItem.scss';
 
-const ProductItem = () => {
-  // const [itemList, setItemList] = useState([]);
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://10.58.52.122:3000/products/all`)
-      // ?${searchParams.toString()}
-      // fetch('/data/ProductItemData.json')
-      .then(response => response.json())
-      .then(result => setData(result.data));
-    // .then(result => console.log(result));
-  }, []);
-
+const ProductItem = ({ data }) => {
   return (
     <>
       {/* 제품 전체 박스 */}

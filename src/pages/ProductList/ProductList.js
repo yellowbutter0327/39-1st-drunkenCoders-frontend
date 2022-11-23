@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import ProductItem from './Component/Body/ProductItem';
 import ProductSearch from './Component/Body/ProductSearch';
 import Dropdown from './Component/Head/Dropdown';
@@ -7,6 +8,17 @@ import ProductMenu from './Component/Head/ProductMenu';
 import './ProductList.scss';
 
 const ProductList = () => {
+  const [searchParams] = useSearchParams();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://10.58.52.122:3000/products/all?${searchParams.toString()}`, {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(result => setData(result.data));
+  }, [searchParams]);
+
   return (
     <div className="container">
       <div className="content-wrapper">
@@ -23,11 +35,11 @@ const ProductList = () => {
           <div className="grey-line" />
           {/* 검색결과 */}
           <div className="search-container">
-            <ProductSearch />
+            <ProductSearch total={data.length} />
           </div>
           {/* 아이템 */}
           <div className="item-container">
-            <ProductItem />
+            <ProductItem data={data} />
           </div>
         </div>
       </div>

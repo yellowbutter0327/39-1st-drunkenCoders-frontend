@@ -3,7 +3,7 @@ import DropdownList from './DropdownList';
 import DropdonwItem from './DropdownItem';
 import './Dropdown.scss';
 
-const Dropdown = () => {
+const DropdownOrigin = () => {
   const [isDropdownVisibility, setIsDropdownVisibility] = useState(false);
 
   return (
@@ -32,4 +32,4 @@ const Dropdown = () => {
   );
 };
 
-export default Dropdown;
+export default DropdownOrigin;

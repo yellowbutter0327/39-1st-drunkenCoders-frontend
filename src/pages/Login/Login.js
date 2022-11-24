@@ -17,6 +17,7 @@ const Login = () => {
 
   const getUserInfo = e => {
     const { name, value } = e.target;
+
     setUserInfo({ ...userInfo, [name]: value });
   };
 

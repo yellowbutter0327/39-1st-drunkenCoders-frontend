@@ -9,8 +9,6 @@ import ProductList from './pages/ProductList/ProductList';
 import Register from './pages/Register/Register';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
-import MyPage from './pages/MyPage/MyPage';
-
 function Router() {
   return (
     <BrowserRouter>
@@ -20,10 +18,9 @@ function Router() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/order" element={<Order />} />
-        <Route path="/productdetail" element={<ProductDetail />} />
+        <Route path="/productdetail/:productId" element={<ProductDetail />} />
         <Route path="/productlist" element={<ProductList />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/mypage" element={<MyPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

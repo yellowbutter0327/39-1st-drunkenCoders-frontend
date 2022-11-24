@@ -11,8 +11,6 @@ const Leftside = ({ productData }) => {
     setSlideClick(!slideClick);
   };
 
-  // if (!productData?.image_url) return null;
-
   return (
     <div className="left-side">
       <div className="detail-box">
@@ -86,9 +84,6 @@ const Leftside = ({ productData }) => {
       <div className={!slideClick ? 'image-stack' : 'image-stack active'}>
         <img className="imgStack" src={productData.detail_image} />
 
-        {/* <img className="imgStack" src={productData.detail_img} />
-        <img className="imgStack" src={productData.detail_img} />
-        <img className="imgStack" src={productData.detail_img} /> */}
         <div className="foled-button-down">
           <button className="fold-btn" onClick={handleToggle}>
             {!slideClick ? '상품설명 펼치기' : '상품설명 접기'}

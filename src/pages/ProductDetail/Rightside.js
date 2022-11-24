@@ -139,9 +139,3 @@ const Rightside = ({ productData }) => {
 };
 
 export default Rightside;
-
-const productdata = [
-  {
-    price: 26000,
-  },
-];

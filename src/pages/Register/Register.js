@@ -56,7 +56,7 @@ const Register = () => {
 
   // 유효성 검사 중 하나라도 만족하지못할때 즉, 버튼이 비활성화 될 때 버튼을 클릭하면 아래와 같은 경고창이 뜬다.
   const handleSignup = () => {
-    fetch('http://10.58.52.141:3000/users/register', {
+    fetch('http://10.58.52.65:3000/users/register', {
       method: 'POST',
       body: JSON.stringify({
         email: userInfo.useremail,
@@ -85,15 +85,14 @@ const Register = () => {
       alert('닉네임을 입력해주세요!');
       return;
     }
-
-    fetch('http://10.58.52.141:3000/users/checknick', {
-      method: 'POST',
+    fetch(`http://10.58.52.65:3000/users/${userInfo.usernickname}`, {
+      method: 'get',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
-      body: JSON.stringify({
-        nickname: userInfo.usernickname,
-      }),
+      // body: JSON.stringify({
+      //   nickname: userInfo.usernickname,
+      // }),
     })
       .then(res => res.json())
       .then(data => {

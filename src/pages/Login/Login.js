@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import iconKakao from './../../assets/login/icon_kakao.png';
-import iconNaver from './../../assets/login/icon_naver.png';
-import iconGoogle from './../../assets/login/icon_google.png';
+import iconKakao from './../../assets/Login/icon_kakao.png';
+import iconNaver from './../../assets/Login/icon_naver.png';
+import iconGoogle from './../../assets/Login/icon_google.png';
 import './Login.scss';
 
 const PW_REG_EXP =
@@ -38,7 +38,6 @@ const Login = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        // 백엔드가 보내주는 메시지를 토대로 분기처리
         if (data.accessToken) {
           localStorage.setItem('token', data.accessToken);
           navigate('/main');

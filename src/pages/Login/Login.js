@@ -16,11 +16,25 @@ const Login = () => {
   });
 
   const getUserInfo = e => {
+<<<<<<< HEAD
     const { name, value } = e.target;
+=======
+    // 구조분해할당
+    // const name = e.target.name;
+    // const value = e.target.value;
+    const { name, value } = e.target;
+
+    // 계산된 속성명
+    // spread operator
+>>>>>>> origin
     setUserInfo({ ...userInfo, [name]: value });
   };
 
   const handleLogin = e => {
+<<<<<<< HEAD
+=======
+    // form tag의 submit 동작을 방지하기 위해 기본 동작을 막아줌
+>>>>>>> origin
     e.preventDefault();
 
     fetch('http://10.58.52.65:3000/users/login', {
@@ -32,6 +46,11 @@ const Login = () => {
       }),
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
+<<<<<<< HEAD
+=======
+        // westudy 참고!
+        // 'Content-type' :
+>>>>>>> origin
       },
     })
       .then(res => res.json())
@@ -54,6 +73,10 @@ const Login = () => {
 
   return (
     <div className="login">
+<<<<<<< HEAD
+=======
+      {/* <div className="login-container"> */}
+>>>>>>> origin
       <h4 className="title-login">로그인</h4>
 
       <div className="login-form">

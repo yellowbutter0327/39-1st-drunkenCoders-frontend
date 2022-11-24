@@ -1,0 +1,137 @@
+@mixin flexSet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@mixin vertical {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.product-info-box {
+  display: block;
+  padding: 16px 0 0 16px;
+
+  .product-info {
+    .product-link {
+      .image-wrapper {
+        width: 100%;
+        height: 250px;
+        position: relative;
+        border-radius: 10px;
+
+        .product-img {
+          border-radius: 15px;
+          box-sizing: border-box;
+          padding: 0 0 0 0;
+          border: none;
+          display: block;
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+
+          // &:hover {
+          //   scale(1.1)
+          // }
+        }
+      }
+
+      // 제품 설명
+      .product-content-box {
+        padding-top: 15px;
+        display: flex;
+        flex-direction: column;
+
+        .product-wrapper {
+          .product-name {
+            height: 15px;
+            font-size: 15px;
+            color: rgb(62, 62, 62);
+            font-weight: bold;
+            text-align: left;
+            line-height: normal;
+          }
+        }
+
+        //  가격 정보
+        .product-wrapper {
+          .product-price-wrapper {
+            color: rgb(62, 62, 62);
+            font-size: 16px;
+            text-align: left;
+            font-weight: bold;
+            line-height: 15px;
+
+            .origin-price {
+              height: 15px;
+              margin-bottom: 5px;
+              color: rgb(178, 178, 178);
+              text-decoration: line-through;
+              font-weight: normal;
+              font-size: 14px;
+            }
+            .discount-price-wrapper {
+              display: flex;
+              align-items: flex-end;
+
+              .discount-price {
+                margin-right: 8px;
+              }
+            }
+          }
+          // 제품 평점
+          .score-box {
+            @include vertical;
+            margin-bottom: 8px;
+
+            .star-img {
+              @include vertical;
+              height: 15px;
+              width: 15px;
+            }
+
+            .rated-score {
+              @include vertical;
+              font-size: 13px;
+              color: rgb(62, 62, 62);
+              margin: 0px 8.4px 0px 5px;
+            }
+
+            .column-line {
+              @include vertical;
+              width: 0.8px;
+              height: 18px;
+              background-color: rgb(235, 235, 235);
+            }
+
+            .review-number {
+              @include vertical;
+              font-size: 13px;
+              font-weight: normal;
+              margin-left: 6.6px;
+              color: rgb(112, 112, 112);
+            }
+          }
+        }
+        // 제품 태그
+        .product-footer {
+          border-top-width: 0.5px;
+          border-style: solid;
+          border-color: rgb(235, 235, 235);
+          padding-top: 8px;
+          font-weight: bold;
+
+          .product-tag {
+            display: flex;
+            flex-direction: column;
+            font-size: 13px;
+            font-weight: normal;
+            color: rgb(112, 112, 112);
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

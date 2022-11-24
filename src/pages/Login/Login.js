@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import iconKakao from './../../assets/login/icon_kakao.png';
-import iconNaver from './../../assets/login/icon_naver.png';
-import iconGoogle from './../../assets/login/icon_google.png';
+import iconKakao from './../../assets/Login/icon_kakao.png';
+import iconNaver from './../../assets/Login/icon_naver.png';
+import iconGoogle from './../../assets/Login/icon_google.png';
 import './Login.scss';
 
 const PW_REG_EXP =

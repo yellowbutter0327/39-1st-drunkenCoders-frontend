@@ -30,7 +30,7 @@ const Login = () => {
     // form tag의 submit 동작을 방지하기 위해 기본 동작을 막아줌
     e.preventDefault();
 
-    fetch('http://10.58.52.141:3000/users/login', {
+    fetch('http://10.58.52.65:3000/users/login', {
       method: 'POST',
       body: JSON.stringify({
         // id, pw key값 맞춰서 통신하기

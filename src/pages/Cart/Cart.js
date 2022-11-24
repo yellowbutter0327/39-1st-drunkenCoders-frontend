@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import CartItem from './CartItem';
 import './Cart.scss';
+import { useParams } from 'react-router-dom';
 
 const Cart = () => {
+  const { productId } = useParams();
   const [cartItemList, setCartItemList] = useState([]);
 
   // const setPaymentItem = () => {
@@ -14,7 +16,7 @@ const Cart = () => {
   // };
   useEffect(() => {
     // mock data fetch
-    fetch(`http://10.58.52.128:3000/carts/1`, {
+    fetch(`http://10.58.52.128:3000/carts/${productId}`, {
       method: 'GET',
     })
       .then(res => res.json())

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Timer = () => {
   const setDate = new Date('2022-12-01T00:00:00+0900');

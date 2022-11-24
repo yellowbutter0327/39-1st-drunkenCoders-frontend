@@ -79,9 +79,9 @@ const Banner = () => {
           next
         </button>
       </div>
-      <div className="slide-pagination">
+      {/* <div className="slide-pagination">
         <span className="count">{count}</span>/<span>{bannerList.length}</span>
-      </div>
+      </div> */}
     </div>
   );
 };

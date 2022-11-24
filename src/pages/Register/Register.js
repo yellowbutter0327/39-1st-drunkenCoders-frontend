@@ -13,7 +13,6 @@ const rules = {
 };
 
 const Register = () => {
-  // 이메일, 비밀번호, 비밀번호 확인, 닉네임
   const [userInfo, setUserInfo] = useState({
     useremail: '',
     userpassword: '',
@@ -33,8 +32,7 @@ const Register = () => {
 
   const getUserInfo = e => {
     const { name, value } = e.target;
-    // 1. spread operator로 기존 내용을 복사
-    // 2. 계산된 속성명으로 수정되는 값 업데이트
+
     setUserInfo({ ...userInfo, [name]: value });
     setIsValid({
       ...isValid,
@@ -42,19 +40,14 @@ const Register = () => {
     });
   };
 
-  // // 이메일 검사 : @가 포함될것.
   const idValueChecked = userInfo.useremail.includes('@' && '.');
-  // // 비밀번호 검사 : 8글자 이상일 것.
   const pwValueChecked =
     userInfo.userpassword.length >= 8 && reg.test(userInfo.userpassword);
   const pwRepeatChecked = userInfo.userpassword === userInfo.userpassword2;
 
-  //버튼 활성화하기
-  // 검사한 모든 로직의 유효성 검사가 true가 될때 getIsActive함수가 작동한다. 버튼 클릭 이벤트가 발생할때 넣어줄 함수.
   const isButtonActive =
     idValueChecked && pwValueChecked && pwRepeatChecked && !isDuplicate;
 
-  // 유효성 검사 중 하나라도 만족하지못할때 즉, 버튼이 비활성화 될 때 버튼을 클릭하면 아래와 같은 경고창이 뜬다.
   const handleSignup = () => {
     fetch('http://10.58.52.65:3000/users/register', {
       method: 'POST',
@@ -90,9 +83,6 @@ const Register = () => {
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
-      // body: JSON.stringify({
-      //   nickname: userInfo.usernickname,
-      // }),
     })
       .then(res => res.json())
       .then(data => {
@@ -106,17 +96,6 @@ const Register = () => {
         }
       });
   };
-
-  // 기본적인 input 값들
-  // 1. input 받는 값을 state로 처리
-  // 2. state를 토대로 validate
-  // 3. 조건부로 스타일링
-
-  // 닉네임 체크
-  // 1. input 받는 값을 state로 처리
-  // 2. 해당 값이 사용할 수 있는 값인지 통신하여 확인
-  // 3. 올바른지 아닌지 state로 처리
-  // 2. state를 토대로 조건부로 스타일링
 
   return (
     <div className="all-container">
@@ -173,8 +152,6 @@ const Register = () => {
               <button className="check-repeat" onClick={checkIsDuplicate}>
                 중복확인
               </button>
-              {/* 조건 ? 트루일때 : false일때
-              조건 && 트루일때 */}
               {isNicknameChecked && isDuplicate && (
                 <p className="alert-txt">닉네임이 중복되었습니다.</p>
               )}

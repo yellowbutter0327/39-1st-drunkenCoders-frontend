@@ -1,88 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './Dropdown.scss';
 
 const Dropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const [openList, setOpenList] = useState(false);
+
+  //참
+  // const toggleHandler = () => {
+  //   setOpenList(!openList);
+  // };
   const filterParams = id => {
     searchParams.set('cate_id', id);
     searchParams.set('sweetness', id);
-    searchParams.set('sourness', id);
-    searchParams.set('carbon', id);
-    searchParams.set('fruits', id);
-    searchParams.set('flowers', id);
-    searchParams.set('grains', id);
+
     setSearchParams(searchParams);
   };
   return (
-    <ul>
+    <div className="drop-down-wrapper">
       {filterList.map(filterItem => (
-        <button key={filterItem.id}>
+        //필터 버튼
+        <button
+          key={filterItem.id}
+          className={
+            openList === filterItem.id ? 'filter-btn active' : 'filter-btn'
+          }
+          onClick={() => setOpenList(filterItem.id)}
+        >
           {filterItem.title}
-          {filterItem.type.map(type => (
-            <button key={type.id} onClick={() => filterParams(type.id)}>
-              <br />
-              <p>{type.option}</p>
-              <br />
-            </button>
-          ))}
+          <div className="filter-content">
+            {filterItem.type.map(type => (
+              //내용 버튼 내용 버튼
+              <div className="filter-item-box" key={type.id}>
+                <div className="filter-item-wrapper">
+                  <div className="filter-item">
+                    <button
+                      className="filter-item-btn"
+                      onClick={() => filterParams(type.id)}
+                    >
+                      <p className="filter-item-text">{type.option}</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </button>
       ))}
-    </ul>
+    </div>
   );
 };
 
 export default Dropdown;
-
-// const juzong = [
-//   {
-//     id: 0,
-//     name: '탁주',
-//   },
-//   {
-//     id: 1,
-//     name: '발효주',
-//   },
-//   {
-//     id: 2,
-//     name: '청주',
-//   },
-//   {
-//     id: 3,
-//     name: '증류주',
-//   },
-// ];
-
-// const danmat = [
-//   {
-//     id: 0,
-//     name: '달',
-//   },
-//   {
-//     id: 1,
-//     name: '달달',
-//   },
-//   {
-//     id: 2,
-//     name: '달달달',
-//   },
-// ];
-
-// const sinmat = [
-//   {
-//     id: 0,
-//     name: '신',
-//   },
-//   {
-//     id: 1,
-//     name: '신신',
-//   },
-//   {
-//     id: 2,
-//     name: '신신신',
-//   },
-// ];
 
 const filterList = [
   {
@@ -153,6 +123,27 @@ const filterList = [
       { id: 3, option: '사탕수수' },
       { id: 4, option: '고구마' },
       { id: 5, option: '보리' },
+    ],
+  },
+  {
+    id: 7,
+    title: '도수',
+    type: [
+      { id: 1, option: '0% ~ 10%' },
+      { id: 2, option: '10% ~ 20%' },
+      { id: 3, option: '20% ~ 30%' },
+      { id: 4, option: '30% ~ 40%' },
+    ],
+  },
+  {
+    id: 8,
+    title: '가격',
+    type: [
+      { id: 1, option: '~ 1만원' },
+      { id: 2, option: '1만원 ~ 3만원' },
+      { id: 3, option: '3만원 ~ 5만원' },
+      { id: 4, option: '5만원 ~ 10만원' },
+      { id: 5, option: '10만원 이상' },
     ],
   },
 ];

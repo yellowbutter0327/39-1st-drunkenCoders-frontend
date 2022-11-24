@@ -37,7 +37,6 @@ const Login = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        // 백엔드가 보내주는 메시지를 토대로 분기처리
         if (data.accessToken) {
           localStorage.setItem('token', data.accessToken);
           navigate('/main');

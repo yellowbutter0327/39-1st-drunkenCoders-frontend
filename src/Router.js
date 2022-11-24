@@ -9,6 +9,7 @@ import ProductList from './pages/ProductList/ProductList';
 import Register from './pages/Register/Register';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+import MyPage from './pages/MyPage/MyPage';
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/productdetail" element={<ProductDetail />} />
         <Route path="/productlist" element={<ProductList />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

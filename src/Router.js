@@ -9,8 +9,6 @@ import ProductList from './pages/ProductList/ProductList';
 import Register from './pages/Register/Register';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
-import Review from './pages/ProductDetail/Review';
-
 function Router() {
   return (
     <BrowserRouter>

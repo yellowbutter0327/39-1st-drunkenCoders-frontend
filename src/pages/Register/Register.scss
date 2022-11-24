@@ -1,6 +1,3 @@
-// 팀원과 상의 후 common에 넣으면 좋음(어차피 프로젝트 내의 다른 input들도 유사한 레이아웃일 것이기 때문!
-<<<<<<< HEAD
-
 .all-container {
   .container {
     display: flex;
@@ -141,49 +138,49 @@
 
   .nickname-repeat {
     position: relative;
-=======
-.container {
-  text-align: center;
-}
+    .container {
+      text-align: center;
+    }
 
-input {
-  outline: none;
-}
+    input {
+      outline: none;
+    }
 
-.signup {
-  color: #ffba00;
-  margin: 0 0 20px;
-  font-size: 18x;
-  font-weight: bold;
-  margin-bottom: 70px;
-  text-decoration-line: none;
-}
+    .signup {
+      color: #ffba00;
+      margin: 0 0 20px;
+      font-size: 18x;
+      font-weight: bold;
+      margin-bottom: 70px;
+      text-decoration-line: none;
+    }
 
-.iconsignup {
-  width: 160px;
-  height: 160px;
-  margin-bottom: 70px;
-}
+    .iconsignup {
+      width: 160px;
+      height: 160px;
+      margin-bottom: 70px;
+    }
 
-.title-email,
-.title-pw,
-.check-pw,
-.nickname {
-  font-size: 16px;
-  color: rgb(255, 186, 0);
-  font-weight: bold;
-  margin-bottom: 20px;
-}
+    .title-email,
+    .title-pw,
+    .check-pw,
+    .nickname {
+      font-size: 16px;
+      color: rgb(255, 186, 0);
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
 
-.register-input {
-  &:focus {
-    border-bottom: red;
-  }
+    .register-input {
+      &:focus {
+        border-bottom: red;
+      }
 
-  &:hover {
-  }
+      &:hover {
+      }
 
-  &:disabled {
->>>>>>> origin
+      &:disabled {
+      }
+    }
   }
 }

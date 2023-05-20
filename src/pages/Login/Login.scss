@@ -1,26 +1,21 @@
-.login {
+.container {
   .title-login {
     color: #ffba00;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     margin-top: 30px;
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
   }
 
   .login-form {
-    width: 335px;
+    width: 340px;
     margin: 0px auto;
     padding: 40px 50px 30px;
-    background-color: rgb(255, 255, 255);
     text-align: center;
 
     .form-wrap {
-      margin-bottom: 50px;
-
+      margin-bottom: 30px;
       label {
         color: #767676;
         font-weight: bold;
@@ -34,14 +29,16 @@
         width: 100%;
         font-size: 16px;
         text-align: center;
+        &:focus {
+          outline: none;
+        }
       }
     }
 
     .login-button {
       width: 150px;
       height: 45px;
-      padding: 1px 6px;
-      margin: 7px;
+      padding: 1px 5px;
       border-radius: 10px;
       border: 1px solid #b2b2b2;
       color: white;
@@ -56,25 +53,23 @@
     }
 
     .signup {
+      display: block;
       text-decoration: underline;
       font-weight: bold;
-      font-size: 18px;
-      margin-top: 10px;
-      margin-bottom: 40px;
-
-      a {
-        color: #0097f3;
-      }
+      font-size: 15px;
+      margin-top: 27px;
+      margin-bottom: 20px;
+      color: #0097f3;
     }
 
-    .social-button {
+    .social-button-wrap {
       font-weight: bold;
       font-size: 13px;
       width: 80%;
       margin: 0 auto;
       font-size: 15px;
 
-      button {
+      .social-login-button {
         width: 100%;
         border-radius: 10px;
         margin-bottom: 10px;
@@ -86,18 +81,18 @@
           vertical-align: middle;
         }
 
-        &.loginButton-kakao {
+        &.kakao {
           background-color: #ffe80f;
           color: #59500e;
           border: none;
         }
 
-        &.loginButton-naver {
+        &.naver {
           background-color: #37c736;
           color: #ffffff;
         }
 
-        &.loginButton-google {
+        &.google {
           background-color: #ffffff;
           color: #757575;
           border: 1px solid #757575;
@@ -105,10 +100,10 @@
       }
     }
 
-    .link-find {
-      margin-bottom: 20px;
-
-      a {
+    .find-link-wrap {
+      .find-link {
+        margin-top: 15px;
+        display: block;
         text-decoration: underline;
         font-weight: bold;
         font-size: 15px;

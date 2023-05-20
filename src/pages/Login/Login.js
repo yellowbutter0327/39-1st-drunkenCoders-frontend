@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import iconKakao from './../../assets/Login/icon_kakao.png';
-import iconNaver from './../../assets/Login/icon_naver.png';
-import iconGoogle from './../../assets/Login/icon_google.png';
+import iconKakao from 'assets/Login/icon_kakao.png';
+import iconNaver from 'assets/Login/icon_naver.png';
+import iconGoogle from 'assets/Login/icon_google.png';
 import './Login.scss';
 
 const PW_REG_EXP =
@@ -15,35 +15,37 @@ const Login = () => {
     userPassword: '',
   });
 
-  const getUserInfo = e => {
+  const handleInputChange = e => {
     const { name, value } = e.target;
-
     setUserInfo({ ...userInfo, [name]: value });
   };
 
-  const handleLogin = e => {
+  const handleLogin = async e => {
     e.preventDefault();
 
-    fetch('http://10.58.52.65:3000/users/login', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: userInfo.userId,
-        password: userInfo.userPassword,
-      }),
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        if (data.accessToken) {
-          localStorage.setItem('token', data.accessToken);
-          navigate('/main');
-        } else {
-          alert('아이디와 비밀번호를 확인해주세요!');
-        }
+    try {
+      const response = await fetch('http://10.58.52.65:3000/users/login', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: userInfo.userId,
+          password: userInfo.userPassword,
+        }),
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
       });
+
+      const data = await response.json();
+
+      if (data.accessToken) {
+        localStorage.setItem('token', data.accessToken);
+        navigate('/main');
+      } else {
+        alert('아이디와 비밀번호를 확인해주세요!');
+      }
+    } catch (error) {
+      console.log('로그인 에러:', error);
+    }
   };
 
   const { userId, userPassword } = userInfo;
@@ -51,15 +53,14 @@ const Login = () => {
   const isInputValid = userId.includes('@') && PW_REG_EXP.test(userPassword);
 
   return (
-    <div className="login">
+    <div className="container">
       <h4 className="title-login">로그인</h4>
-
       <div className="login-form">
         <form onSubmit={handleLogin}>
           <div className="form-wrap">
             <label htmlFor="input-email">이메일</label>
             <input
-              onChange={getUserInfo}
+              onChange={handleInputChange}
               id="input-email"
               name="userId"
               type="text"
@@ -70,8 +71,7 @@ const Login = () => {
           <div className="form-wrap">
             <label htmlFor="input-password">비밀번호</label>
             <input
-              onChange={getUserInfo}
-              id="input-password"
+              onChange={handleInputChange}
               name="userPassword"
               type="password"
               placeholder="비밀번호를 입력해주세요"
@@ -83,30 +83,30 @@ const Login = () => {
           </button>
         </form>
 
-        <div className="signup">
-          <Link to="/register">회원가입(최대 4000p적립)</Link>
+        <Link to="/register" className="signup">
+          회원가입(최대 4000p적립)
+        </Link>
+
+        <div className="social-button-wrap">
+          {SOCIALBUTTONS.map((button, index) => (
+            <button
+              key={index}
+              className={`social-login-button ${button.style}`}
+              type="submit"
+            >
+              <img src={button.icon} alt={button.text} />
+              {button.text}
+            </button>
+          ))}
         </div>
 
-        <div className="social-button">
-          <button className="loginButton-kakao" type="submit">
-            <img src={iconKakao} />
-            카카오 로그인
-          </button>
-          <button className="loginButton-naver" type="submit">
-            <img src={iconNaver} />
-            네이버 로그인
-          </button>
-          <button className="loginButton-google" type="submit">
-            <img src={iconGoogle} />
-            구글 로그인
-          </button>
-        </div>
-
-        <div className="link-find">
-          <Link to="/login">아이디 찾기</Link>
-        </div>
-        <div className="link-find">
-          <Link to="/register">비밀번호 찾기</Link>
+        <div className="find-link-wrap">
+          <Link to="/login" className="find-link">
+            아이디 찾기
+          </Link>
+          <Link to="/register" className="find-link">
+            비밀번호 찾기
+          </Link>
         </div>
       </div>
     </div>
@@ -114,3 +114,9 @@ const Login = () => {
 };
 
 export default Login;
+
+const SOCIALBUTTONS = [
+  { id: 1, icon: iconKakao, text: '카카오 로그인', style: 'kakao' },
+  { id: 2, icon: iconNaver, text: '네이버 로그인', style: 'naver' },
+  { id: 3, icon: iconGoogle, text: '구글 로그인', style: 'google' },
+];

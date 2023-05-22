@@ -1,0 +1,7 @@
+.sns-box a {
+  display: inline-block;
+  width: 35px;
+}
+.sns-box a ~ a {
+  margin-left: 6px;
+}/*# sourceMappingURL=Sns.css.map */

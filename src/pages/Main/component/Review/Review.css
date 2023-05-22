@@ -1,0 +1,90 @@
+.review-slider {
+  position: relative;
+  padding: 0 100px;
+}
+.review-slider .review-list {
+  display: flex;
+  overflow: hidden;
+}
+.review-slider .review-list .review-item {
+  width: 100%;
+}
+.review-slider .review-list .review-item .thumb {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.review-slider .review-list .review-item .rating-bg {
+  margin: 20px auto 0;
+  width: 100px;
+  height: 20px;
+  background: url(/assets/Main/icon_star_score_bg.png) no-repeat;
+  background-size: 100px 20px;
+}
+.review-slider .review-list .review-item .rating-bg .rating {
+  height: 20px;
+  background: url(/assets/Main/icon_star_score.png) no-repeat;
+  background-size: 100px 20px;
+}
+.review-slider .review-list .review-item .txt {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-top: 30px;
+  height: 60px;
+  line-height: 20px;
+  color: #666;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.review-slider .review-list .review-item .name {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+}
+.review-slider .review-list.col3 {
+  margin: 0 -25px;
+}
+.review-slider .review-list.col3 .review-item {
+  flex: none;
+  padding: 0 25px;
+  width: 33.3334%;
+  transition: 0.5s;
+}
+.review-slider .review-list.col3 .review-item .thumb {
+  position: relative;
+  height: 300px;
+}
+.review-slider .review-list.col3 .review-item .thumb img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.review-slider .slide-btn button {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  text-indent: -9999px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.review-slider .slide-btn button.btn-prev {
+  left: 0;
+  background: url(/assets/Main/icon_prev_on.png) no-repeat;
+  background-size: 50px;
+}
+.review-slider .slide-btn button.btn-prev:disabled {
+  background: url(/assets/Main/icon_prev_off.png) no-repeat;
+  background-size: 50px;
+}
+.review-slider .slide-btn button.btn-next {
+  right: 0;
+  background: url(/assets/Main/icon_next_on.png) no-repeat;
+  background-size: 50px;
+}
+.review-slider .slide-btn button.btn-next:disabled {
+  background: url(/assets/Main/icon_next_off.png) no-repeat;
+  background-size: 50px;
+}/*# sourceMappingURL=Review.css.map */

@@ -1,0 +1,152 @@
+.left-side {
+  margin-left: 50px;
+  width: 700px;
+  max-width: 800px;
+  display: inline-block;
+}
+.left-side .detail-box {
+  font-size: 0px;
+  display: flex;
+  margin-bottom: 80px;
+}
+.left-side .detail-box .detail-img {
+  width: 310px;
+  min-width: 310px;
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+}
+.left-side .detail-box .detailImg {
+  outline: none;
+  width: 100%;
+}
+.left-side .detail-box .detail-string {
+  margin-left: 20px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: bold;
+  color: #707070;
+}
+.left-side .detail-box .detail-string .sector-first {
+  line-height: 1.11;
+  text-align: left;
+}
+.left-side .detail-box .detail-string .sector-first .detail-mainString {
+  font-size: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 27ch;
+  margin-bottom: 10px;
+}
+.left-side .detail-box .detail-string .sector-second {
+  line-height: 1.11;
+  text-align: left;
+}
+.left-side .detail-box .detail-string .sector-second .detail-secondString {
+  font-size: 16px;
+  color: rgb(178, 178, 178);
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.left-side .detail-box .detail-string .sector-second .detail-hashtag {
+  font-size: 16px;
+  color: rgb(255, 186, 0);
+  margin-bottom: 10px;
+}
+.left-side .detail-box .detail-string .sector-second .rating {
+  display: flex;
+  align-items: flex-start;
+}
+.left-side .detail-box .detail-string .sector-second .rating .rating-bg {
+  width: 100px;
+  height: 20px;
+  background: url(/assets/ProductDetail/icon-star-score-bg.png) no-repeat;
+  background-size: 100px 20px;
+}
+.left-side .detail-box .detail-string .sector-second .rating .rating-bg .rating {
+  height: 20px;
+  background: url(/assets/ProductDetail/icon-star-score.png) no-repeat;
+  background-size: 100px 20px;
+}
+.left-side .detail-box .detail-string .sector-second .rating .review {
+  margin-left: 10px;
+  margin-bottom: -8px;
+  text-decoration: none;
+  font-size: 14px;
+  color: rgb(0, 151, 243);
+  margin-bottom: 50px;
+}
+.left-side .detail-box .detail-string .sector-third {
+  line-height: 1.14;
+  margin-bottom: 50px;
+}
+.left-side .detail-box .detail-string .sector-third .flex {
+  display: flex;
+  align-items: center;
+  color: rgb(112, 112, 112);
+  margin-bottom: 10px;
+  word-break: keep-all;
+}
+.left-side .detail-box .detail-string .sector-third .third-string {
+  font-size: 14px;
+  font-weight: bold;
+}
+.left-side .detail-box .detail-string .sector-third .delivery_string {
+  font-size: 15px;
+  font-weight: bold;
+  color: #b2b2b2;
+}
+.left-side .detail-box .detail-string .sector-fourth {
+  margin-bottom: 0px;
+  color: rgb(178, 178, 178);
+}
+.left-side .detail-box .detail-string .sector-fourth .flex-price {
+  font-size: 14px;
+  font-weight: bold;
+  color: #707070;
+}
+.left-side .detail-box .detail-string .sector-fourth .discountBox {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 36px;
+  color: #707070;
+}
+.left-side .detail-box .detail-string .sector-fourth .fourth-string {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(0, 151, 243);
+}
+.left-side .image-stack {
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+}
+.left-side .image-stack.active {
+  height: auto;
+}
+.left-side .image-stack .foled-button-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.left-side .image-stack .foled-button-down .fold-btn {
+  width: 600px;
+  height: 44px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4.42px;
+  background-color: rgb(255, 186, 0);
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  color: rgb(255, 255, 255);
+}
+.left-side .recommend {
+  margin-top: 40px;
+}/*# sourceMappingURL=Leftside.css.map */

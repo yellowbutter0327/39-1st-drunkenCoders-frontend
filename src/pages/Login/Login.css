@@ -1,0 +1,97 @@
+.container .title-login {
+  color: #ffba00;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+.container .login-form {
+  width: 340px;
+  margin: 0px auto;
+  padding: 40px 50px 30px;
+  text-align: center;
+}
+.container .login-form .form-wrap {
+  margin-bottom: 30px;
+}
+.container .login-form .form-wrap label {
+  color: #767676;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.container .login-form .form-wrap input {
+  border-bottom: 1px solid #707070;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+}
+.container .login-form .form-wrap input:focus {
+  outline: none;
+}
+.container .login-form .login-button {
+  width: 150px;
+  height: 45px;
+  padding: 1px 5px;
+  border-radius: 10px;
+  border: 1px solid #b2b2b2;
+  color: white;
+  background-color: #ffba00;
+  font-weight: bold;
+  font-size: 18px;
+}
+.container .login-form .login-button:disabled {
+  background-color: white;
+  color: #b2b2b2;
+}
+.container .login-form .signup {
+  display: block;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 27px;
+  margin-bottom: 20px;
+  color: #0097f3;
+}
+.container .login-form .social-button-wrap {
+  font-weight: bold;
+  font-size: 13px;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 15px;
+}
+.container .login-form .social-button-wrap .social-login-button {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+.container .login-form .social-button-wrap .social-login-button img {
+  margin-right: 5px;
+  width: 16px;
+  vertical-align: middle;
+}
+.container .login-form .social-button-wrap .social-login-button.kakao {
+  background-color: #ffe80f;
+  color: #59500e;
+  border: none;
+}
+.container .login-form .social-button-wrap .social-login-button.naver {
+  background-color: #37c736;
+  color: #ffffff;
+}
+.container .login-form .social-button-wrap .social-login-button.google {
+  background-color: #ffffff;
+  color: #757575;
+  border: 1px solid #757575;
+}
+.container .login-form .find-link-wrap .find-link {
+  margin-top: 15px;
+  display: block;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 15px;
+  color: #c3c3c3;
+}/*# sourceMappingURL=Login.css.map */

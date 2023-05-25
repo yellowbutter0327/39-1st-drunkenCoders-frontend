@@ -29,9 +29,11 @@
     margin-bottom: 50px;
     font-weight: bold;
     color: black;
+    background-color: lightgoldenrodyellow;
 
     &:disabled {
       opacity: 0.3;
+      background-color: none;
     }
   }
 }

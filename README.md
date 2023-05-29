@@ -21,14 +21,15 @@ BE 3명, FE 4명
 구독 기능을 제외하고 쇼핑 기능에 집중하여 작업하였습니다.
 
 ### 📍 적용 기술
+JavaScript
 
-Front-End
-JavaScript React Scss
+React
+
+Scss
+
 협업 툴 : notion, trello
 
 ### 📍 구현 기능 :
-
-# 구현 기능 gif
 
 +) 전체 기능은 상단 영상으로도 볼 수 있습니다. gif로 밑에도 첨부하였습니다.
 
